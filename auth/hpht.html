@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Input HPHT - BundaCare</title>
+  <style>#sidebar{display:none!important;}#bottom-nav{display:none!important;}body{opacity:0;animation:pgIn .3s ease .05s forwards;}@keyframes pgIn{to{opacity:1;}}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body style="min-height:100vh;background:linear-gradient(135deg,#fafafa 0%,#f5f0ff 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;">
+
+  <a href="../index.html" style="display:flex;align-items:center;gap:8px;margin-bottom:28px;text-decoration:none;">
+    <div style="width:36px;height:36px;background:linear-gradient(135deg,#f472b6,#ec4899);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;"><i class="fas fa-heart"></i></div>
+    <span style="font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:#ec4899;">BundaCare</span>
+  </a>
+
+  <div class="auth-card" style="max-width:460px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="width:64px;height:64px;background:linear-gradient(135deg,#f472b6,#ec4899);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:28px;"><i class="fas fa-calendar-alt"></i></div>
+      <h1 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:700;color:#111827;margin-bottom:8px;">Kapan Hari Pertama Haid Terakhir Anda?</h1>
+      <p style="font-size:13px;color:#6b7280;line-height:1.7;">HPHT digunakan untuk menghitung usia kehamilan dan perkiraan tanggal lahir (HPL) bayi Anda.</p>
+    </div>
+
+    <div class="info-box info-box-pink" style="margin-bottom:24px;">
+      <i class="fas fa-circle-info" style="color:#ec4899;"></i>
+      <span>Pastikan tanggal yang dimasukkan adalah hari pertama menstruasi terakhir Anda, bukan tanggal berakhirnya.</span>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <label class="flabel">Tanggal HPHT</label>
+      <input class="inp" type="date" id="hpht-input" onchange="calcHpht(this)" style="font-size:15px;"/>
+    </div>
+
+    <div id="hr" style="display:none;margin-bottom:24px;">
+      <div style="background:linear-gradient(135deg,#f472b6,#ec4899);border-radius:16px;padding:20px;color:#fff;">
+        <div style="font-size:12px;opacity:.8;margin-bottom:4px;">Usia Kehamilan Saat Ini</div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px;font-weight:700;margin-bottom:16px;" id="hw">-</div>
+        <div style="height:1px;background:rgba(255,255,255,.2);margin-bottom:16px;"></div>
+        <div style="font-size:12px;opacity:.8;margin-bottom:4px;">Perkiraan Tanggal Lahir (HPL)</div>
+        <div style="font-size:18px;font-weight:700;" id="hd">-</div>
+      </div>
+    </div>
+
+    <a href="login.html" class="btn btn-pink btn-full" style="font-size:15px;padding:13px;">Lanjutkan</a>
+    <a href="login.html" style="display:block;text-align:center;font-size:13px;color:#9ca3af;margin-top:14px;">Lewati untuk sekarang</a>
+  </div>
+
+  <div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>BundaCare - Aplikasi Kesehatan Ibu Hamil</title>
+  <style>
+    #sidebar{display:none!important;}
+    #bottom-nav{display:none!important;}
+    body{opacity:0;animation:pageIn .3s ease .05s forwards;}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="pub-nav">
+  <div class="pub-nav-inner">
+    <a href="index.html" class="pub-nav-logo">
+      <span class="pub-nav-logo-text">BundaCare</span>
+    </a>
+    <div class="pub-nav-links">
+      <a class="pub-nav-link active" href="index.html">Beranda</a>
+      <a class="pub-nav-link" href="articles/index.html">Artikel</a>
+      <a class="pub-nav-link" href="shop/index.html">Belanja</a>
+      <a class="pub-nav-link" href="community/index.html">Komunitas</a>
+    </div>
+    <div class="pub-nav-actions">
+      <a class="pub-nav-btn-login" href="auth/login.html">Masuk</a>
+      <a class="pub-nav-btn-register" href="auth/register.html">Daftar Gratis</a>
+    </div>
+    <button class="pub-nav-burger" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="pub-nav-mobile" id="mob-menu">
+  <a class="pub-nav-mobile-link active" href="index.html">Beranda</a>
+  <a class="pub-nav-mobile-link" href="articles/index.html">Artikel</a>
+  <a class="pub-nav-mobile-link" href="shop/index.html">Belanja</a>
+  <a class="pub-nav-mobile-link" href="community/index.html">Komunitas</a>
+  <div class="pub-nav-mobile-actions">
+    <a href="auth/login.html" class="btn btn-gray" style="flex:1;">Masuk</a>
+    <a href="auth/register.html" class="btn btn-pink" style="flex:1;">Daftar</a>
+  </div>
+</div>
+
+<main id="main" style="padding-top:70px;">
+
+  <!-- ===== HERO ===== -->
+  <section style="padding:100px 0;background:linear-gradient(135deg,#fafafa 0%,#f5f0ff 100%);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(236,72,153,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="hero-grid">
+
+        <!-- Hero Image -->
+        <div class="anim-slide-right" style="display:flex;justify-content:center;align-items:start;height:480px;">
+          <img src="images/landing-page1.jpg" alt="BundaCare App" style="width:100%;max-width:1000px;height:auto;border-radius:16px;box-shadow:var(--shadow-xl);" onerror="this.style.display='none'"/>
+        </div>
+
+        <!-- Hero Text -->
+         <!-- Card ini sesuaikan dengan gambar adar tidak jauh perbedaan tingginya, agar terlihat rapi -->
+        <div>
+          <h1 class="anim-fade-up anim-delay-1" style="font-size:52px;font-weight:800;color:var(--text-dark);line-height:1.1;margin-bottom:20px;">Pantau Kesehatan Kehamilan dengan Mudah</h1>
+          <p class="anim-fade-up anim-delay-2" style="font-size:17px;color:var(--text-soft);line-height:1.8;margin-bottom:32px;">BundaCare adalah aplikasi kesehatan khusus ibu hamil. Dapatkan info perkembangan janin mingguan, tips nutrisi, panduan olahraga aman, dan komunitas bumil yang supportif.</p>
+
+          <div class="anim-fade-up anim-delay-3" style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;">
+            <a href="auth/register.html" class="btn btn-pink btn-lg">Daftar Gratis</a>
+            <a href="auth/login.html" class="btn btn-outline btn-lg">Masuk</a>
+          </div>
+
+          <!-- Feature grid 2x2 -->
+          <div class="anim-fade-up anim-delay-4" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div class="feat-list-item">
+              <div class="feat-list-check"><i class="fas fa-check" style="font-size:14px;"></i></div>
+              <div><div style="font-weight:600;color:var(--text-dark);margin-bottom:2px;">Tracker Kehamilan</div><div style="font-size:13px;color:var(--text-soft);">Update mingguan perkembangan janin</div></div>
+            </div>
+            <div class="feat-list-item">
+              <div class="feat-list-check"><i class="fas fa-check" style="font-size:14px;"></i></div>
+              <div><div style="font-weight:600;color:var(--text-dark);margin-bottom:2px;">Tips dan Artikel</div><div style="font-size:13px;color:var(--text-soft);">Dari dokter dan ahli gizi bersertifikat</div></div>
+            </div>
+            <div class="feat-list-item">
+              <div class="feat-list-check"><i class="fas fa-check" style="font-size:14px;"></i></div>
+              <div><div style="font-weight:600;color:var(--text-dark);margin-bottom:2px;">Komunitas Aktif</div><div style="font-size:13px;color:var(--text-soft);">Berbagi cerita dengan sesama bumil</div></div>
+            </div>
+            <div class="feat-list-item">
+              <div class="feat-list-check"><i class="fas fa-check" style="font-size:14px;"></i></div>
+              <div><div style="font-weight:600;color:var(--text-dark);margin-bottom:2px;">Reminder Penting</div><div style="font-size:13px;color:var(--text-soft);">Notifikasi jadwal cek kesehatan</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <style>.hero-grid{grid-template-columns:1fr 1fr;}@media(max-width:767px){.hero-grid{grid-template-columns:1fr!important;}.anim-slide-right{order:2;}}</style>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section style="padding:100px 0;background:var(--white);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:80px;">
+        <h2 style="font-size:42px;font-weight:800;color:var(--text-dark);margin-bottom:12px;">Memulai Perjalanan Sehat Anda</h2>
+        <p style="font-size:17px;color:var(--text-soft);max-width:550px;margin:0 auto;">Mudah digunakan dalam 4 langkah sederhana</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="hiw-grid">
+        <div class="feat-card"><div class="step-circle">1</div><h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Daftar Akun</h3><p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Buat akun dengan email dan isi usia kehamilan Anda</p></div>
+        <div class="feat-card"><div class="step-circle">2</div><h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Monitor Perkembangan</h3><p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Lihat info detail perkembangan janin setiap minggu</p></div>
+        <div class="feat-card"><div class="step-circle">3</div><h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Baca Panduan</h3><p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Tips nutrisi, olahraga, dan persiapan persalinan</p></div>
+        <div class="feat-card"><div class="step-circle">4</div><h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Bergabung Komunitas</h3><p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Terhubung dan saling mendukung dengan sesama bumil</p></div>
+      </div>
+      <style>.hiw-grid{grid-template-columns:repeat(4,1fr);}@media(max-width:1024px){.hiw-grid{grid-template-columns:repeat(2,1fr)!important;}}@media(max-width:600px){.hiw-grid{grid-template-columns:1fr!important;}}</style>
+    </div>
+  </section>
+
+  <!-- ===== KEY FEATURES ===== -->
+  <section style="padding:100px 0;background:var(--bg-section);">
+    <div class="container">
+      <h2 style="font-size:42px;font-weight:800;color:var(--text-dark);margin-bottom:64px;text-align:center;">Fitur Unggulan BundaCare</h2>
+
+      <!-- Feature 1 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;" class="feat-detail-grid">
+        <div>
+          <h3 style="font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:16px;">Tracker Perkembangan Janin</h3>
+          <p style="font-size:16px;color:var(--text-soft);line-height:1.8;margin-bottom:24px;">Dapatkan informasi lengkap tentang perkembangan bayi Anda setiap minggu, mulai dari ukuran, berat, hingga kemampuan yang sedang berkembang.</p>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Informasi medis akurat dari dokter kandungan</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Reminder untuk pemeriksaan kesehatan berkala</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Timeline visual perkembangan janin</span></div>
+        </div>
+        <div><img src="images/tracker-landingpage.jpg" alt="Tracker" style="width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow-xl);" onerror="this.style.background='var(--pink-pale)';this.style.height='300px';this.style.display='block'"/></div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;" class="feat-detail-grid">
+        <div style="order:2;">
+          <h3 style="font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:16px;">Panduan Kesehatan dan Nutrisi</h3>
+          <p style="font-size:16px;color:var(--text-soft);line-height:1.8;margin-bottom:24px;">Artikel yang ditulis dan diverifikasi oleh dokter kandungan dan ahli gizi bersertifikat. Nutrisi, olahraga aman, dan persiapan persalinan lengkap.</p>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">200+ artikel berkualitas tinggi</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Tips nutrisi dan menu sehat setiap trimester</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Tutorial olahraga aman untuk ibu hamil</span></div>
+        </div>
+        <div style="order:1;"><img src="images/artikel-landingpage.jpg" alt="Artikel" style="width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow-xl);" onerror="this.style.background='#ede9fe';this.style.height='300px';this.style.display='block'"/></div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;" class="feat-detail-grid">
+        <div>
+          <h3 style="font-size:28px;font-weight:700;color:var(--text-dark);margin-bottom:16px;">Komunitas Ibu Hamil</h3>
+          <p style="font-size:16px;color:var(--text-soft);line-height:1.8;margin-bottom:24px;">Terhubung dengan ribuan ibu hamil di Indonesia. Berbagi pengalaman, tips, dan saling memberi dukungan dalam perjalanan kehamilan Anda.</p>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Forum diskusi per trimester kehamilan</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Grup dukungan untuk keluhan spesifik</span></div>
+          <div class="feat-list-item"><span style="color:var(--pink);font-weight:700;font-size:16px;">✓</span><span style="color:var(--text-soft);">Moderator profesional yang berpengalaman</span></div>
+        </div>
+        <div><img src="images/komunitas-landingpage.jpg" alt="Komunitas" style="width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow-xl);" onerror="this.style.background='#d1fae5';this.style.height='300px';this.style.display='block'"/></div>
+      </div>
+
+      <style>.feat-detail-grid{grid-template-columns:1fr 1fr;}@media(max-width:767px){.feat-detail-grid{grid-template-columns:1fr!important;gap:30px!important;}.feat-detail-grid div[style*="order:2"]{order:1!important;}.feat-detail-grid div[style*="order:1"]{order:2!important;}}</style>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONI ===== -->
+  <section style="padding:100px 0;background:var(--bg-section);">
+    <div class="container">
+      <h2 style="font-size:42px;font-weight:800;color:var(--text-dark);margin-bottom:16px;text-align:center;">Cerita Nyata dari Ibu Hamil</h2>
+      <p style="font-size:16px;color:var(--text-soft);max-width:600px;margin:0 auto 60px;text-align:center;">Ribuan ibu hamil telah merasakan manfaat BundaCare dalam perjalanan kehamilan mereka</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="testi-grid-pub">
+        <div class="testi-card">
+          <div style="display:flex;gap:4px;margin-bottom:16px;"><span style="color:#f59e0b;">★★★★★</span></div>
+          <p style="font-size:15px;color:var(--text-main);line-height:1.8;margin-bottom:20px;font-style:italic;">"Sangat membantu! Saya jadi tahu apa yang harus dimakan dan kapan harus cek kandungan. BundaCare seperti dokter pribadi saya."</p>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border);">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;">A</div>
+            <div><div style="font-weight:700;color:var(--text-dark);font-size:15px;">Aisyah Putri</div><div style="font-size:13px;color:var(--text-muted);">Hamil 28 minggu, Jakarta</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div style="display:flex;gap:4px;margin-bottom:16px;"><span style="color:#f59e0b;">★★★★★</span></div>
+          <p style="font-size:15px;color:var(--text-main);line-height:1.8;margin-bottom:20px;font-style:italic;">"Forum komunitas sangat supportif. Setiap kali saya khawatir, selalu ada bumil lain yang siap dengarkan dan berbagi pengalaman."</p>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border);">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;">R</div>
+            <div><div style="font-weight:700;color:var(--text-dark);font-size:15px;">Rara Dewi</div><div style="font-size:13px;color:var(--text-muted);">Hamil 35 minggu, Surabaya</div></div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div style="display:flex;gap:4px;margin-bottom:16px;"><span style="color:#f59e0b;">★★★★★</span></div>
+          <p style="font-size:15px;color:var(--text-main);line-height:1.8;margin-bottom:20px;font-style:italic;">"Tracker perkembangan janin sangat detail. Setiap minggu saya excited lihat update ukuran dan berat bayi. Dokumentasi yang bagus!"</p>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border);">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:16px;">T</div>
+            <div><div style="font-weight:700;color:var(--text-dark);font-size:15px;">Tika Sari</div><div style="font-size:13px;color:var(--text-muted);">Hamil 14 minggu, Bandung</div></div>
+          </div>
+        </div>
+      </div>
+      <style>.testi-grid-pub{grid-template-columns:repeat(3,1fr);}@media(max-width:1024px){.testi-grid-pub{grid-template-columns:repeat(2,1fr)!important;}}@media(max-width:767px){.testi-grid-pub{grid-template-columns:1fr!important;}}</style>
+    </div>
+  </section>
+
+  <!-- ===== CTA BOTTOM ===== -->
+  <section style="padding:100px 0;background:var(--white);">
+    <div class="container" style="text-align:center;max-width:700px;margin:0 auto;">
+      <h2 style="font-size:44px;font-weight:800;color:var(--text-dark);margin-bottom:16px;">Siap Memulai Perjalanan Sehat?</h2>
+      <p style="font-size:18px;color:var(--text-soft);line-height:1.8;margin-bottom:48px;">Daftar sekarang dan dapatkan akses penuh ke semua fitur BundaCare.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="auth/register.html" class="btn btn-pink btn-xl">Daftar Gratis Sekarang</a>
+        <a href="auth/login.html" class="btn btn-gray btn-xl">Sudah Punya Akun</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="pub-footer">
+  <div  class="pub-footer-inner">
+    <div>
+      <div class="pub-footer-heading">Fitur</div>
+      <a href="/auth/login.html">Tracker Kehamilan</a>
+      <a href="articles/index.html">Panduan Kesehatan</a>
+      <!--masukkan link hosting wordpress-->
+      <a href="community/index.html">Komunitas</a>
+      <a href="shop/index.html">Belanja Produk</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Akun</div>
+      <a href="/auth/login.html">Masuk</a>
+      <a href="/auth/register.html">Daftar Gratis</a>
+      <a href="/auth/forgot-password.html">Lupa Password</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Lainnya</div>
+      <a href="/admin/login.html">Admin Panel</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </div>
+  <div class="pub-footer-bottom">
+    <p style="margin-bottom:6px;">2026 BundaCare. Semua hak dilindungi undang-undang.</p>
+    <p>Dibuat untuk ibu hamil Indonesia</p>
+  </div>
+</footer>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="app.js"></script>
+</body>
+</html>

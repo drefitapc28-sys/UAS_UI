@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Artikel - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="../user/dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="../user/dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="../user/tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link active" href="index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="../user/profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="../user/profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:80px;">
+
+  <div class="page-header">
+    <a href="../user/dashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Artikel</h2>
+    <span></span>
+  </div>
+
+  <div style="padding:14px 18px;">
+    <!-- SEARCH -->
+    <div class="inp-wrap" style="margin-bottom:16px;">
+      <i class="fas fa-search inp-icon"></i>
+      <input class="inp" type="text" placeholder="Cari artikel kesehatan bumil..."/>
+    </div>
+
+    <!-- ARTIKEL UNGGULAN -->
+    <div style="margin-bottom:18px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:12px;">✨ Pilihan Editor</div>
+      <a href="detail-user.html" style="display:block;border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);text-decoration:none;">
+        <div style="height:180px;overflow:hidden;background:#f5f0ff;position:relative;">
+          <img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+          <span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:16px 14px 12px;">
+            <div style="font-size:15px;font-weight:700;color:#fff;line-height:1.4;">Panduan Nutrisi Lengkap untuk Setiap Trimester</div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 5 menit baca</span>
+          <span style="font-size:12px;color:var(--pink);font-weight:600;"><i class="fas fa-bookmark" style="font-size:11px;"></i> Simpan</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- TABS KATEGORI -->
+    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none;" data-tabs>
+      <button class="tab-btn active" onclick="tab(this,'ar-semua')">Semua</button>
+      <button class="tab-btn" onclick="tab(this,'ar-nutrisi')">Nutrisi</button>
+      <button class="tab-btn" onclick="tab(this,'ar-olahraga')">Olahraga</button>
+      <button class="tab-btn" onclick="tab(this,'ar-persiapan')">Persiapan</button>
+      <button class="tab-btn" onclick="tab(this,'ar-persalinan')">Persalinan</button>
+      <button class="tab-btn" onclick="tab(this,'ar-tips')">Tips</button>
+    </div>
+
+    <!-- TAB SEMUA -->
+    <div class="tab-content active" id="ar-semua">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f0ff;"><img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Nutrisi</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</div><div style="font-size:11px;color:var(--text-muted);">dr. Rina Wijaya · 5 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;"><img src="../images/articles/olahraga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Olahraga</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">7 Olahraga Aman yang Direkomendasikan Dokter</div><div style="font-size:11px;color:var(--text-muted);">dr. Hana Kusuma · 4 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f3ff;"><img src="../images/articles/tas-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-purple" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persiapan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Checklist Tas Persalinan yang Wajib Disiapkan</div><div style="font-size:11px;color:var(--text-muted);">Bidan Siti Rahayu · 6 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fff1f2;"><img src="../images/articles/tanda-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-red" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persalinan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</div><div style="font-size:11px;color:var(--text-muted);">dr. Wulan Sari · 7 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fffbeb;"><img src="../images/articles/morning-sickness.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-yellow" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Tips</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Cara Mengatasi Morning Sickness yang Efektif</div><div style="font-size:11px;color:var(--text-muted);">dr. Rina Wijaya · 4 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/janin-minggu24.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-pink" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Perkembangan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Perkembangan Janin Minggu ke-24 yang Menakjubkan</div><div style="font-size:11px;color:var(--text-muted);">dr. Andini Pertiwi · 5 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f3ff;"><img src="../images/articles/tidur-hamil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-yellow" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Tips</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Posisi Tidur Terbaik untuk Ibu Hamil</div><div style="font-size:11px;color:var(--text-muted);">dr. Hana Kusuma · 3 mnt</div></div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f0fdf4;"><img src="../images/articles/yoga-prenetal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;"><span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Olahraga</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Manfaat Yoga Prenatal untuk Ibu dan Janin</div><div style="font-size:11px;color:var(--text-muted);">Instruktur Dewi · 5 mnt</div></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB NUTRISI -->
+    <div class="tab-content" id="ar-nutrisi">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f0ff;"><img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Nutrisi</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</div><div style="font-size:11px;color:var(--text-muted);">dr. Rina Wijaya · 5 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f0fdf4;"><img src="../images/articles/asam-folat.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Nutrisi</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Pentingnya Asam Folat di Awal Kehamilan</div><div style="font-size:11px;color:var(--text-muted);">Apt. Maya Dewi · 4 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/makanan-bumil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Nutrisi</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">20 Makanan Bergizi Terbaik untuk Ibu Hamil</div><div style="font-size:11px;color:var(--text-muted);">dr. Hana Kusuma · 6 mnt</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB OLAHRAGA -->
+    <div class="tab-content" id="ar-olahraga">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;"><img src="../images/articles/olahraga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Olahraga</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">7 Olahraga Aman yang Direkomendasikan Dokter</div><div style="font-size:11px;color:var(--text-muted);">dr. Hana Kusuma · 4 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f0fdf4;"><img src="../images/articles/yoga-prenetal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Olahraga</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Manfaat Yoga Prenatal untuk Ibu dan Janin</div><div style="font-size:11px;color:var(--text-muted);">Instruktur Dewi · 5 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/jalan-kaki.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Olahraga</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Jalan Kaki 30 Menit, Manfaatnya Luar Biasa</div><div style="font-size:11px;color:var(--text-muted);">dr. Wulan Sari · 3 mnt</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERSIAPAN -->
+    <div class="tab-content" id="ar-persiapan">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f3ff;"><img src="../images/articles/tas-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-purple" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persiapan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Checklist Tas Persalinan yang Wajib Disiapkan</div><div style="font-size:11px;color:var(--text-muted);">Bidan Siti Rahayu · 6 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;"><img src="../images/articles/birth-plan.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-purple" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persiapan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Cara Membuat Birth Plan yang Ideal</div><div style="font-size:11px;color:var(--text-muted);">dr. Andini Pertiwi · 5 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/kamar-bayi.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-purple" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persiapan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Tips Mendekorasi Kamar Bayi yang Aman</div><div style="font-size:11px;color:var(--text-muted);">Tim BundaCare · 7 mnt</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERSALINAN -->
+    <div class="tab-content" id="ar-persalinan">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fff1f2;"><img src="../images/articles/tanda-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-red" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persalinan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</div><div style="font-size:11px;color:var(--text-muted);">dr. Wulan Sari · 7 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;"><img src="../images/articles/normal-vs-cesar.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-red" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persalinan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Normal vs Caesar: Pertimbangkan dengan Bijak</div><div style="font-size:11px;color:var(--text-muted);">dr. Rina Wijaya · 8 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/teknik-napas.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-red" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Persalinan</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Teknik Pernapasan untuk Meringankan Kontraksi</div><div style="font-size:11px;color:var(--text-muted);">Bidan Siti Rahayu · 5 mnt</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB TIPS -->
+    <div class="tab-content" id="ar-tips">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fffbeb;"><img src="../images/articles/morning-sickness.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-yellow" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Tips</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Cara Mengatasi Morning Sickness yang Efektif</div><div style="font-size:11px;color:var(--text-muted);">dr. Rina Wijaya · 4 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f3ff;"><img src="../images/articles/tidur-hamil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-yellow" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Tips</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Posisi Tidur Terbaik untuk Ibu Hamil</div><div style="font-size:11px;color:var(--text-muted);">dr. Hana Kusuma · 3 mnt</div></div></a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;"><div style="width:80px;height:80px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;"><img src="../images/articles/stretch-mark-tips.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div><div style="flex:1;"><span class="badge badge-yellow" style="font-size:10px;padding:2px 8px;margin-bottom:6px;display:inline-block;">Tips</span><div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:5px;">Tips Mencegah dan Mengatasi Stretch Mark</div><div style="font-size:11px;color:var(--text-muted);">Tim BundaCare · 4 mnt</div></div></a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="../user/dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="../user/tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link active" href="index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="../user/profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

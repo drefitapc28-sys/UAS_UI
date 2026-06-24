@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Belanja - BundaCare</title>
+  <style>#sidebar{display:none!important;}#bottom-nav{display:none!important;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<nav class="pub-nav">
+  <div class="pub-nav-inner">
+    <a href="../index.html" class="pub-nav-logo">
+      <span class="pub-nav-logo-text">BundaCare</span>
+    </a>
+    <div class="pub-nav-links">
+      <a class="pub-nav-link" href="../index.html">Beranda</a>
+      <a class="pub-nav-link" href="../articles/index.html">Artikel</a>
+      <a class="pub-nav-link active" href="index.html">Belanja</a>
+      <a class="pub-nav-link" href="../community/index.html">Komunitas</a>
+    </div>
+    <div class="pub-nav-actions">
+      <a class="pub-nav-btn-login" href="../auth/login.html">Masuk</a>
+      <a class="pub-nav-btn-register" href="../auth/register.html">Daftar Gratis</a>
+    </div>
+    <button class="pub-nav-burger" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="pub-nav-mobile" id="mob-menu">
+  <a class="pub-nav-mobile-link" href="../index.html">Beranda</a>
+  <a class="pub-nav-mobile-link" href="../articles/index.html">Artikel</a>
+  <a class="pub-nav-mobile-link active" href="index.html">Belanja</a>
+  <a class="pub-nav-mobile-link" href="../community/index.html">Komunitas</a>
+  <div class="pub-nav-mobile-actions">
+    <a href="../auth/login.html" class="btn btn-gray" style="flex:1;">Masuk</a>
+    <a href="../auth/register.html" class="btn btn-pink" style="flex:1;">Daftar</a>
+  </div>
+</div>
+
+<main id="main" style="padding-top:70px;min-height:100vh;">
+
+  <!-- SEARCH BAR tidak usah sticky --> 
+  <div style="background:#fff;border-bottom:1px solid var(--border);padding:14px 0;position:static;top:70px;z-index:40;">
+    <div class="container" style="display:flex;gap:10px;align-items:center;">
+      <div class="inp-wrap" style="flex:1;">
+        <i class="fas fa-search inp-icon"></i>
+        <input class="inp" type="text" placeholder="Cari produk untuk bumil..."/>
+      </div>
+      <button onclick="toast('Filter aktif')" style="width:44px;height:44px;border-radius:var(--r-md);background:var(--bg-section);border:1.5px solid var(--border);color:var(--pink);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-sliders"></i></button>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:20px;padding-bottom:60px;">
+
+    <!-- TABS -->
+    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;scrollbar-width:none;" data-tabs>
+      <button class="tab-btn active" onclick="tab(this,'sp-semua')">Semua</button>
+      <button class="tab-btn" onclick="tab(this,'sp-vitamin')">Vitamin</button>
+      <button class="tab-btn" onclick="tab(this,'sp-pakaian')">Pakaian</button>
+      <button class="tab-btn" onclick="tab(this,'sp-perlengkapan')">Perlengkapan</button>
+      <button class="tab-btn" onclick="tab(this,'sp-perawatan')">Perawatan</button>
+      <button class="tab-btn" onclick="tab(this,'sp-nutrisi')">Nutrisi</button>
+    </div>
+
+    <!-- TAB SEMUA -->
+    <div class="tab-content active" id="sp-semua">
+      <!-- BANNER -->
+      <div style="height:110px;border-radius:var(--r-lg);overflow:hidden;background:var(--pink);margin-bottom:20px;position:relative;display:flex;align-items:center;padding:0 28px;">
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:11px;color:rgba(255,255,255,.8);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Flash Sale Hari Ini</div>
+          <div style="font-size:22px;font-weight:800;color:#fff;">Diskon s.d. 40%</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.85);margin-top:2px;">Vitamin dan produk perawatan pilihan</div>
+        </div>
+        <a href="#" class="btn" style="margin-left:auto;background:rgba(255,255,255,.2)!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.4)!important;font-size:12px;flex-shrink:0;" onclick="return false;">Lihat Semua</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#f5f0ff;position:relative;"><img src="../images/products/vitamin-prenatal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-20%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Vitamin Prenatal Plus DHA</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(234)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 185.000</span><span class="price-main" style="font-size:13px;">Rp 148.000</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">1.2rb terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#eff6ff;position:relative;"><img src="../images/products/maternity-pillow.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-15%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Bantal Kehamilan U-Shape</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(186)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 350.000</span><span class="price-main" style="font-size:13px;">Rp 297.500</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">875 terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#fdf2f8;position:relative;"><img src="../images/products/stretch-mark-cream.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-30%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Krim Anti Stretch Mark</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(421)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 220.000</span><span class="price-main" style="font-size:13px;">Rp 154.000</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">2.1rb terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#fffbeb;position:relative;"><img src="../images/products/maternity-dress.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-25%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Dress Hamil Casual Linen</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(93)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 280.000</span><span class="price-main" style="font-size:13px;">Rp 210.000</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">310 terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#f0fdf4;position:relative;"><img src="../images/products/doppler.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-10%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Fetal Doppler Monitor</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(67)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 450.000</span><span class="price-main" style="font-size:13px;">Rp 405.000</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">224 terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#fdf2f8;position:relative;"><img src="../images/products/nursing-bra.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-20%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Bra Menyusui Anti-Keringat</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(158)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 160.000</span><span class="price-main" style="font-size:13px;">Rp 128.000</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">543 terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#f5f3ff;position:relative;"><img src="../images/products/green-soya.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-35%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Susu Kedelai Hijau</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(312)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 95.000</span><span class="price-main" style="font-size:13px;">Rp 61.750</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">1.8rb terjual</div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;overflow:hidden;background:#eff6ff;position:relative;"><img src="../images/products/pregnancy-jurnal.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-15%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;line-height:1.4;">Jurnal Kehamilan</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);margin-left:3px;">(89)</span></div><div style="display:flex;align-items:center;gap:5px;margin-top:4px;"><span class="price-orig">Rp 160.000</span><span class="price-main" style="font-size:13px;">Rp 106.250</span></div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">267 terjual</div></div></a>
+      </div>
+    </div>
+
+ <!-- TAB VITAMIN -->
+    <div class="tab-content" id="sp-vitamin">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f5f0ff;position:relative;overflow:hidden;"><img src="../images/products/vitamin-prenatal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-20%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Vitamin Prenatal Plus DHA</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (234)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 185.000</span><span class="price-main" style="font-size:13px;">Rp 148.000</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f5f3ff;position:relative;overflow:hidden;"><img src="../images/products/green-soya.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-35%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Susu Kedelai Hijau</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (312)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 95.000</span><span class="price-main" style="font-size:13px;">Rp 61.750</span></div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PAKAIAN -->
+    <div class="tab-content" id="sp-pakaian">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#fffbeb;position:relative;overflow:hidden;"><img src="../images/products/maternity-dress.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-25%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Dress Hamil Casual Linen</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (93)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 280.000</span><span class="price-main" style="font-size:13px;">Rp 210.000</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#fdf2f8;position:relative;overflow:hidden;"><img src="../images/products/nursing-bra.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-20%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Bra Menyusui Anti-Keringat</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (158)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 160.000</span><span class="price-main" style="font-size:13px;">Rp 128.000</span></div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERLENGKAPAN -->
+    <div class="tab-content" id="sp-perlengkapan">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#eff6ff;position:relative;overflow:hidden;"><img src="../images/products/maternity-pillow.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-15%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Bantal Kehamilan U-Shape</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (186)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 350.000</span><span class="price-main" style="font-size:13px;">Rp 297.500</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f0fdf4;position:relative;overflow:hidden;"><img src="../images/products/doppler.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-10%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Fetal Doppler Monitor</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (67)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 450.000</span><span class="price-main" style="font-size:13px;">Rp 405.000</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#eff6ff;position:relative;overflow:hidden;"><img src="../images/products/pregnancy-jurnal.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-15%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Jurnal Kehamilan Premium</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (89)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 125.00<PASSWORD></span><span class="price-main" style="font-size:13px;">Rp 1<PASSWORD>.25<PASSWORD></span></div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERAWATAN -->
+    <div class="tab-content" id="sp-perawatan">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#fdf2f8;position:relative;overflow:hidden;"><img src="../images/products/stretch-mark-cream.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-30%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Krim Anti Stretch Mark</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (421)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 220.000</span><span class="price-main" style="font-size:13px;">Rp 154.000</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#fdf2f8;position:relative;overflow:hidden;"><img src="../images/products/belly-oil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-20%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Belly Oil</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (421)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 220.000</span><span class="price-main" style="font-size:13px;">Rp 136.500</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#fdf2f8;position:relative;overflow:hidden;"><img src="../images/products/sabun-mandi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-40%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Sabun Mandi</div><div><span class="stars">★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (421)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 220.000</span><span class="price-main" style="font-size:13px;">Rp 57.200</span></div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB NUTRISI -->
+    <div class="tab-content" id="sp-nutrisi">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="prod-grid-shop">
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f5f3ff;position:relative;overflow:hidden;"><img src="../images/products/green-soya.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-35%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Susu Kedelai Hijau</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (312)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 95.000</span><span class="price-main" style="font-size:13px;">Rp 61.750</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f5f3ff;position:relative;overflow:hidden;"><img src="../images/products/susu-bumil.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-15%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Susu Bumil</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (312)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 95.000</span><span class="price-main" style="font-size:13px;">Rp 145.000</span></div></div></a>
+        <a href="/auth/login.html" class="prod-card"><div style="height:140px;background:#f5f3ff;position:relative;overflow:hidden;"><img src="../images/products/biskuit.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="price-disc" style="position:absolute;top:8px;left:8px;">-18%</span></div><div style="padding:12px;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Biskuit Bumil</div><div><span class="stars">★★★★★</span><span style="font-size:11px;color:var(--text-muted);"> (312)</span></div><div style="margin-top:4px;display:flex;gap:5px;align-items:center;"><span class="price-orig">Rp 95.000</span><span class="price-main" style="font-size:13px;">Rp 55.000</span></div></div></a>
+            </div>
+    </div>
+
+  </div>
+  <style>.prod-grid-shop{grid-template-columns:repeat(4,1fr);}@media(max-width:1024px){.prod-grid-shop{grid-template-columns:repeat(3,1fr)!important;}}@media(max-width:767px){.prod-grid-shop{grid-template-columns:repeat(2,1fr)!important;}}</style>
+</main>
+
+<!-- FOOTER -->
+<footer class="pub-footer">
+  <div class="pub-footer-inner">
+    <div>
+      <div class="pub-footer-heading">Fitur</div>
+      <a href="/auth/login.html">Tracker Kehamilan</a>
+      <a href="articles/index.html">Panduan Kesehatan</a>
+      <!--masukkan link hosting wordpress-->
+      <a href="community/index.html">Komunitas</a>
+      <a href="shop/index.html">Belanja Produk</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Akun</div>
+      <a href="/auth/login.html">Masuk</a>
+      <a href="/auth/register.html">Daftar Gratis</a>
+      <a href="/auth/forgot-password.html">Lupa Password</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Lainnya</div>
+      <a href="/admin/login.html">Admin Panel</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </div>
+  <div class="pub-footer-bottom">
+    <p style="margin-bottom:6px;">2026 BundaCare. Semua hak dilindungi undang-undang.</p>
+    <p>Dibuat untuk ibu hamil Indonesia</p>
+  </div>
+</footer>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kelola Transaksi — BundaCare Admin</title>
+  <style>body{opacity:0;animation:pageIn .3s ease .05s forwards;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="adm-overlay" id="adm-overlay" onclick="admCloseSidebar()"></div>
+
+<!-- MOBILE TOP BAR -->
+<div class="adm-topbar">
+  <div class="adm-topbar-title">
+    <div class="adm-brand-icon" style="width:30px;height:30px;font-size:13px;"><i class="fas fa-shield-halved"></i></div>
+    Admin Panel
+  </div>
+  <button class="adm-burger" onclick="admToggleSidebar()"><i class="fas fa-bars"></i></button>
+</div>
+
+<div style="display:flex;min-height:100vh;">
+
+  <aside class="adm-sidebar">
+    <a href="dashboard.html" class="adm-brand">
+      <div class="adm-brand-icon"><i class="fas fa-shield-halved"></i></div>
+      <div><p class="adm-brand-name">BundaCare</p><p class="adm-brand-sub">Admin Panel</p></div>
+    </a>
+    <nav style="padding:12px 10px;flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a class="adm-link" href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a class="adm-link" href="articles.html"><i class="fas fa-newspaper"></i> Artikel</a>
+      <a class="adm-link" href="products.html"><i class="fas fa-box"></i> Produk</a>
+      <a class="adm-link" href="users.html"><i class="fas fa-users"></i> Pengguna</a>
+      <a class="adm-link active" href="transactions.html"><i class="fas fa-receipt"></i> Transaksi</a>
+    </nav>
+    <a class="adm-link adm-logout" href="../index.html" style="padding:16px 20px;margin-top:auto;"><i class="fas fa-right-from-bracket"></i> Keluar</a>
+  </aside>
+
+  <div class="adm-content">
+
+    <div style="margin-bottom:24px;">
+      <h1 style="font-size:22px;font-weight:800;color:var(--text-dark);">Kelola Transaksi</h1>
+      <p style="font-size:13px;color:var(--text-muted);">8.921 transaksi total</p>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;" class="trx-stat-grid">
+      <div class="card" style="padding:16px;display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;background:#fee2e2;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#ef4444;font-size:17px;flex-shrink:0;"><i class="fas fa-clock"></i></div>
+        <div><div style="font-size:20px;font-weight:800;color:var(--text-dark);">142</div><div style="font-size:11px;color:var(--text-muted);">Belum Bayar</div></div>
+      </div>
+      <div class="card" style="padding:16px;display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;background:#fef3c7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#d97706;font-size:17px;flex-shrink:0;"><i class="fas fa-box"></i></div>
+        <div><div style="font-size:20px;font-weight:800;color:var(--text-dark);">389</div><div style="font-size:11px;color:var(--text-muted);">Dikemas</div></div>
+      </div>
+      <div class="card" style="padding:16px;display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;background:#dbeafe;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:17px;flex-shrink:0;"><i class="fas fa-truck"></i></div>
+        <div><div style="font-size:20px;font-weight:800;color:var(--text-dark);">521</div><div style="font-size:11px;color:var(--text-muted);">Dikirim</div></div>
+      </div>
+      <div class="card" style="padding:16px;display:flex;align-items:center;gap:12px;">
+        <div style="width:40px;height:40px;background:#d1fae5;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#059669;font-size:17px;flex-shrink:0;"><i class="fas fa-circle-check"></i></div>
+        <div><div style="font-size:20px;font-weight:800;color:var(--text-dark);">7.869</div><div style="font-size:11px;color:var(--text-muted);">Selesai</div></div>
+      </div>
+    </div>
+    <style>.trx-stat-grid{grid-template-columns:repeat(4,1fr);}@media(max-width:1100px){.trx-stat-grid{grid-template-columns:repeat(2,1fr)!important;}}</style>
+
+    <!-- FILTER -->
+    <div class="card" style="padding:16px;margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div class="inp-wrap" style="flex:1;min-width:180px;">
+        <i class="fas fa-search inp-icon"></i>
+        <input class="inp" type="text" placeholder="Cari ID atau nama pengguna..."/>
+      </div>
+      <select class="inp" style="width:150px;">
+        <option>Semua Status</option>
+        <option>Belum Bayar</option><option>Dikemas</option>
+        <option>Dikirim</option><option>Selesai</option><option>Dibatalkan</option>
+      </select>
+      <input class="inp" type="date" style="width:150px;" value="2026-05-21"/>
+      <button class="btn btn-gray btn-sm" onclick="toast('Filter diterapkan')"><i class="fas fa-filter"></i> Filter</button>
+      <button class="btn btn-outline-pink btn-sm" onclick="toast('Data diekspor ke CSV')"><i class="fas fa-download"></i> Ekspor</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card" style="overflow:auto;margin-bottom:20px;">
+      <table class="adm-table" style="min-width:900px;">
+        <thead>
+          <tr>
+            <th>ID Pesanan</th>
+            <th>Pengguna</th>
+            <th>Produk</th>
+            <th>Total</th>
+            <th>Tanggal</th>
+            <th>Status</th>
+            <th style="width:150px;">Update Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260521-4829</td>
+            <td style="font-size:13px;font-weight:600;">Bunda Sari</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Vitamin Prenatal + Krim Stretch Mark</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 529.750</td>
+            <td style="font-size:12px;color:var(--text-muted);">21 Mei 2026</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Lunas</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Lunas</option><option>Dikemas</option><option>Dikirim</option><option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260521-4830</td>
+            <td style="font-size:13px;font-weight:600;">Aisyah Putri</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Bantal Kehamilan U-Shape</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 315.500</td>
+            <td style="font-size:12px;color:var(--text-muted);">21 Mei 2026</td>
+            <td><span class="badge badge-red" style="font-size:10px;">Blm Bayar</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Belum Bayar</option><option>Lunas</option><option>Dibatalkan</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260520-3211</td>
+            <td style="font-size:13px;font-weight:600;">Rara Dewi</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Vitamin Prenatal Plus DHA x2</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 314.000</td>
+            <td style="font-size:12px;color:var(--text-muted);">20 Mei 2026</td>
+            <td><span class="badge badge-yellow" style="font-size:10px;">Dikemas</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Dikemas</option><option>Dikirim</option><option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260519-2987</td>
+            <td style="font-size:13px;font-weight:600;">Nisa Kamalia</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Bra Menyusui Anti-Keringat</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 152.000</td>
+            <td style="font-size:12px;color:var(--text-muted);">19 Mei 2026</td>
+            <td><span class="badge badge-yellow" style="font-size:10px;">Dikemas</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Dikemas</option><option>Dikirim</option><option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260518-1654</td>
+            <td style="font-size:13px;font-weight:600;">Tika Sari</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Krim Anti Stretch Mark Organik</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 172.000</td>
+            <td style="font-size:12px;color:var(--text-muted);">18 Mei 2026</td>
+            <td><span class="badge badge-blue" style="font-size:10px;">Dikirim</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Dikirim</option><option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260510-0892</td>
+            <td style="font-size:13px;font-weight:600;">Devi Rahayu</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Teh Herbal Khusus Bumil x2</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 141.500</td>
+            <td style="font-size:12px;color:var(--text-muted);">10 Mei 2026</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Selesai</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:12px;font-weight:700;color:var(--text-dark);">#BC20260503-0541</td>
+            <td style="font-size:13px;font-weight:600;">Bunda Sari</td>
+            <td style="font-size:12px;color:var(--text-soft);max-width:160px;">Fetal Doppler Monitor</td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 423.000</td>
+            <td style="font-size:12px;color:var(--text-muted);">3 Mei 2026</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Selesai</span></td>
+            <td>
+              <select class="inp" style="font-size:12px;padding:7px 10px;" onchange="toast('Status diperbarui')">
+                <option>Selesai</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div style="font-size:13px;color:var(--text-muted);">Menampilkan 1–7 dari 8.921 transaksi</div>
+      <div style="display:flex;gap:4px;">
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn btn-pink btn-xs">1</button>
+        <button class="btn btn-gray btn-xs">2</button>
+        <button class="btn btn-gray btn-xs">3</button>
+        <span style="padding:5px 8px;font-size:12px;color:var(--text-muted);">...</span>
+        <button class="btn btn-gray btn-xs">1.275</button>
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+function admToggleSidebar() {
+  document.querySelector('.adm-sidebar').classList.toggle('open');
+  document.getElementById('adm-overlay').classList.toggle('show');
+}
+function admCloseSidebar() {
+  document.querySelector('.adm-sidebar').classList.remove('open');
+  document.getElementById('adm-overlay').classList.remove('show');
+}
+// Active link bottom nav
+const page = location.pathname.split('/').pop();
+document.querySelectorAll('.adm-link, .adm-bn-link').forEach(el => {
+  if (el.getAttribute('href') === page) el.classList.add('active');
+});
+</script>
+</body>
+</html>

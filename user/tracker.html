@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Tracker Kehamilan - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{margin-left:0;transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link active" href="tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:80px;">
+
+  <div class="page-header">
+    <a href="dashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Tracker Kehamilan</h2>
+  </div>
+
+  <div style="padding:18px;display:flex;flex-direction:column;gap:16px;">
+
+    <!-- CARD KEHAMILAN -->
+    <div class="preg-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;position:relative;z-index:1;">
+        <div>
+          <div style="font-size:11px;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Usia Kehamilan Saat Ini</div>
+          <div style="font-size:32px;font-weight:800;line-height:1.1;">24 Minggu 3 Hari</div>
+          <div style="font-size:13px;opacity:.8;margin-top:4px;">HPL: 14 September 2026</div>
+        </div>
+        <div style="background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:12px;padding:12px 16px;text-align:center;border:1px solid rgba(255,255,255,.15);">
+          <div style="font-size:11px;opacity:.8;">Trimester</div>
+          <div style="font-size:22px;font-weight:800;">2</div>
+        </div>
+      </div>
+      <div class="prog" style="position:relative;z-index:1;"><div class="prog-fill" style="width:60%;"></div></div>
+      <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;opacity:.8;position:relative;z-index:1;">
+        <span>Minggu 1</span><span style="font-weight:700;">Minggu 24</span><span>Minggu 40</span>
+      </div>
+    </div>
+
+    <!-- INFO JANIN -->
+    <div>
+      <div class="sec-title">Perkembangan Janin</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+        <div class="stat-card"><div class="stat-icon" style="color:var(--pink);"><i class="fas fa-ruler"></i></div><div class="stat-val">21 cm</div><div class="stat-lbl">Panjang</div></div>
+        <div class="stat-card"><div class="stat-icon" style="color:#8b5cf6;"><i class="fas fa-weight-scale"></i></div><div class="stat-val">600 g</div><div class="stat-lbl">Berat</div></div>
+        <div class="stat-card"><div class="stat-icon" style="color:#059669;"><i class="fas fa-seedling"></i></div><div class="stat-val">Jagung</div><div class="stat-lbl">Ukuran</div></div>
+        <div class="stat-card"><div class="stat-icon" style="color:#ef4444;"><i class="fas fa-heart-pulse"></i></div><div class="stat-val">148 bpm</div><div class="stat-lbl">Detak</div></div>
+      </div>
+    </div>
+
+    <!-- DESKRIPSI -->
+    <div class="card" style="padding:18px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">Perkembangan Minggu ke-24</div>
+      <p style="font-size:14px;color:var(--text-soft);line-height:1.8;">Pada minggu ini, bayi Anda sudah semakin aktif bergerak dan dapat mendengar suara dari luar rahim. Paru-paru mulai menghasilkan surfaktan untuk persiapan bernapas setelah lahir. Kulit bayi masih tampak kemerahan karena lapisan lemak di bawah kulit belum terbentuk sempurna.</p>
+    </div>
+
+    <!-- TIPS CHECKLIST -->
+    <div class="card" style="padding:18px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:14px;">Tips Minggu Ini</div>
+      <div class="check-item"><div class="check-icon"><i class="fas fa-check"></i></div><span>Konsumsi zat besi 27 mg per hari untuk mencegah anemia</span></div>
+      <div class="check-item"><div class="check-icon"><i class="fas fa-check"></i></div><span>Lakukan senam prenatal ringan 20–30 menit setiap hari</span></div>
+      <div class="check-item"><div class="check-icon"><i class="fas fa-check"></i></div><span>Minum air putih minimal 2 liter per hari</span></div>
+      <div class="check-item"><div class="check-icon"><i class="fas fa-check"></i></div><span>Jadwalkan kunjungan USG untuk memantau janin</span></div>
+      <div class="check-item"><div class="check-icon"><i class="fas fa-check"></i></div><span>Mulai siapkan tas persalinan dan kebutuhan bayi</span></div>
+    </div>
+
+    <!-- PROGRESS KESEHATAN -->
+    <div class="card" style="padding:18px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:16px;">Progress Kesehatan Ibu</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;"><span style="font-weight:600;color:var(--text-main);">Nutrisi Harian</span><span style="font-weight:700;color:var(--pink);">78%</span></div><div class="prog"><div class="prog-fill" style="width:78%;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;"><span style="font-weight:600;color:var(--text-main);">Hidrasi</span><span style="font-weight:700;color:var(--pink);">65%</span></div><div class="prog"><div class="prog-fill" style="width:65%;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;"><span style="font-weight:600;color:var(--text-main);">Aktivitas Fisik</span><span style="font-weight:700;color:var(--pink);">50%</span></div><div class="prog"><div class="prog-fill" style="width:50%;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;"><span style="font-weight:600;color:var(--text-main);">Kualitas Tidur</span><span style="font-weight:700;color:var(--pink);">85%</span></div><div class="prog"><div class="prog-fill" style="width:85%;"></div></div></div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="card" style="padding:18px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:20px;">Timeline Kehamilan</div>
+      <div class="tl-item"><div class="tl-dot done"><i class="fas fa-check" style="font-size:11px;"></i></div><div style="padding-top:6px;"><div style="font-size:14px;font-weight:700;color:var(--text-main);">Minggu ke-12</div><div style="font-size:12px;color:var(--text-muted);">USG pertama - Detak jantung terdeteksi</div><span class="badge badge-green" style="margin-top:6px;font-size:10px;">Selesai</span></div></div>
+      <div class="tl-item"><div class="tl-dot done"><i class="fas fa-check" style="font-size:11px;"></i></div><div style="padding-top:6px;"><div style="font-size:14px;font-weight:700;color:var(--text-main);">Minggu ke-20</div><div style="font-size:12px;color:var(--text-muted);">USG anatomi - Jenis kelamin terdeteksi</div><span class="badge badge-green" style="margin-top:6px;font-size:10px;">Selesai</span></div></div>
+      <div class="tl-item"><div class="tl-dot active"><i class="fas fa-location-dot" style="font-size:11px;"></i></div><div style="padding-top:6px;"><div style="font-size:14px;font-weight:700;color:var(--pink);">Minggu ke-24 (Sekarang)</div><div style="font-size:12px;color:var(--text-muted);">Pemantauan rutin - Pertumbuhan janin</div><span class="badge badge-pink" style="margin-top:6px;font-size:10px;">Saat Ini</span></div></div>
+      <div class="tl-item"><div class="tl-dot upcoming">28</div><div style="padding-top:6px;"><div style="font-size:14px;font-weight:700;color:var(--text-muted);">Minggu ke-28</div><div style="font-size:12px;color:var(--text-muted);">Cek glukosa darah dan anemia</div><span class="badge badge-gray" style="margin-top:6px;font-size:10px;">Akan Datang</span></div></div>
+      <div class="tl-item" style="padding-bottom:0;"><div class="tl-dot upcoming">40</div><div style="padding-top:6px;"><div style="font-size:14px;font-weight:700;color:var(--text-muted);">Minggu ke-40 (HPL)</div><div style="font-size:12px;color:var(--text-muted);">Perkiraan Hari Lahir: 14 September 2026</div><span class="badge badge-gray" style="margin-top:6px;font-size:10px;">Akan Datang</span></div></div>
+    </div>
+
+  </div>
+</main>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link active" href="tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

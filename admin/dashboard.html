@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Dashboard - BundaCare</title>
+  <style>body{opacity:0;animation:pageIn .3s ease .05s forwards;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="adm-overlay" id="adm-overlay" onclick="admCloseSidebar()"></div>
+
+<!-- MOBILE TOP BAR -->
+<div class="adm-topbar">
+  <div class="adm-topbar-title">
+    <div class="adm-brand-icon" style="width:30px;height:30px;font-size:13px;"><i class="fas fa-shield-halved"></i></div>
+    Admin Panel
+  </div>
+  <button class="adm-burger" onclick="admToggleSidebar()"><i class="fas fa-bars"></i></button>
+</div>
+
+<div style="display:flex;min-height:100vh;">
+
+  <aside class="adm-sidebar">
+    <a href="dashboard.html" class="adm-brand">
+      <div class="adm-brand-icon"><i class="fas fa-shield-halved"></i></div>
+      <div><p class="adm-brand-name">BundaCare</p><p class="adm-brand-sub">Admin Panel</p></div>
+    </a>
+    <nav style="padding:12px 10px;flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a class="adm-link active" href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a class="adm-link" href="articles.html"><i class="fas fa-newspaper"></i> Artikel</a>
+      <a class="adm-link" href="products.html"><i class="fas fa-box"></i> Produk</a>
+      <a class="adm-link" href="users.html"><i class="fas fa-users"></i> Pengguna</a>
+      <a class="adm-link" href="transactions.html"><i class="fas fa-receipt"></i> Transaksi</a>
+    </nav>
+    <a class="adm-link adm-logout" href="../index.html" style="padding:16px 20px;margin-top:auto;"><i class="fas fa-right-from-bracket"></i> Keluar</a>
+  </aside>
+
+  <div class="adm-content">
+
+    <!-- HEADER -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 style="font-size:24px;font-weight:800;color:var(--text-dark);">Dashboard</h1>
+        <p style="font-size:13px;color:var(--text-muted);">Selamat datang kembali, Admin</p>
+      </div>
+      <div style="font-size:13px;color:var(--text-soft);background:#fff;padding:8px 14px;border-radius:var(--r-md);border:1px solid var(--border);">
+        <i class="fas fa-calendar" style="margin-right:6px;color:var(--pink);"></i>21 Mei 2026
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="adm-stat-grid" style="display:grid;gap:16px;margin-bottom:28px;" class="adm-stat-grid">
+      <div class="adm-stat-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:40px;height:40px;background:#fce7f3;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--pink);font-size:18px;"><i class="fas fa-users"></i></div>
+          <span class="adm-stat-trend up"><i class="fas fa-arrow-up" style="font-size:10px;"></i> 12%</span>
+        </div>
+        <div class="adm-stat-num">52.840</div>
+        <div class="adm-stat-label">Total Pengguna</div>
+      </div>
+      <div class="adm-stat-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:40px;height:40px;background:#dbeafe;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:18px;"><i class="fas fa-box"></i></div>
+          <span class="adm-stat-trend up"><i class="fas fa-arrow-up" style="font-size:10px;"></i> 5%</span>
+        </div>
+        <div class="adm-stat-num">248</div>
+        <div class="adm-stat-label">Total Produk</div>
+      </div>
+      <div class="adm-stat-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:40px;height:40px;background:#d1fae5;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#059669;font-size:18px;"><i class="fas fa-receipt"></i></div>
+          <span class="adm-stat-trend up"><i class="fas fa-arrow-up" style="font-size:10px;"></i> 18%</span>
+        </div>
+        <div class="adm-stat-num">8.921</div>
+        <div class="adm-stat-label">Total Transaksi</div>
+      </div>
+      <div class="adm-stat-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:40px;height:40px;background:#ede9fe;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#7c3aed;font-size:18px;"><i class="fas fa-newspaper"></i></div>
+          <span class="adm-stat-trend up"><i class="fas fa-arrow-up" style="font-size:10px;"></i> 7%</span>
+        </div>
+        <div class="adm-stat-num">214</div>
+        <div class="adm-stat-label">Total Artikel</div>
+      </div>
+    </div>
+    <style>.adm-stat-grid{grid-template-columns:repeat(4,1fr);}@media(max-width:1100px){.adm-stat-grid{grid-template-columns:repeat(2,1fr)!important;}}</style>
+
+    <!-- CHART + RECENT TRX -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;" class="adm-two-col">
+
+      <!-- BAR CHART -->
+      <div class="card" style="padding:20px;">
+        <div style="font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Pengguna Baru</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:20px;">7 hari terakhir</div>
+        <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">182</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:60%;opacity:.7;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Sel</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">241</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:85%;opacity:.8;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Rab</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">137</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:45%;opacity:.7;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Kam</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">268</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:95%;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Jum</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">198</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:70%;opacity:.8;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Sab</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">155</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:55%;opacity:.7;"></div>
+            <div style="font-size:10px;color:var(--text-muted);">Min</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+            <div style="font-size:10px;color:var(--text-muted);font-weight:600;">103</div>
+            <div style="background:var(--pink);border-radius:4px 4px 0 0;width:100%;height:40%;opacity:.5;"></div>
+            <div style="font-size:10px;color:var(--text-muted);font-weight:700;">Sen</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;">
+          <span style="color:var(--text-muted);">Total minggu ini: <strong style="color:var(--text-dark);">1.284</strong></span>
+          <span style="color:#059669;font-weight:700;"><i class="fas fa-arrow-up" style="font-size:10px;"></i> 12% vs lalu</span>
+        </div>
+      </div>
+
+      <!-- TRANSAKSI TERBARU -->
+      <div class="card" style="padding:20px;overflow:auto;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--text-dark);">Transaksi Terbaru</div>
+          <a href="transactions.html" style="font-size:12px;color:var(--pink);font-weight:700;text-decoration:none;">Lihat Semua</a>
+        </div>
+        <table class="adm-table" style="width:100%;">
+          <thead><tr><th>Pengguna</th><th>Produk</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="font-size:12px;font-weight:600;">Aisyah R.</td><td style="font-size:12px;max-width:100px;">Vitamin Prenatal</td><td style="font-size:12px;font-weight:600;color:var(--pink);">Rp 148rb</td><td><span class="badge badge-green" style="font-size:10px;">Lunas</span></td></tr>
+            <tr><td style="font-size:12px;font-weight:600;">Rara D.</td><td style="font-size:12px;max-width:100px;">Bantal Kehamilan</td><td style="font-size:12px;font-weight:600;color:var(--pink);">Rp 297rb</td><td><span class="badge badge-yellow" style="font-size:10px;">Dikemas</span></td></tr>
+            <tr><td style="font-size:12px;font-weight:600;">Tika S.</td><td style="font-size:12px;max-width:100px;">Krim Stretch Mark</td><td style="font-size:12px;font-weight:600;color:var(--pink);">Rp 154rb</td><td><span class="badge badge-blue" style="font-size:10px;">Dikirim</span></td></tr>
+            <tr><td style="font-size:12px;font-weight:600;">Devi R.</td><td style="font-size:12px;max-width:100px;">Dress Hamil Linen</td><td style="font-size:12px;font-weight:600;color:var(--pink);">Rp 210rb</td><td><span class="badge badge-red" style="font-size:10px;">Blm Bayar</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <style>.adm-two-col{grid-template-columns:1fr 1fr;}@media(max-width:1000px){.adm-two-col{grid-template-columns:1fr!important;}}</style>
+
+    <!-- ARTIKEL TERPOPULER -->
+    <div class="card" style="padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:700;color:var(--text-dark);">Artikel Terpopuler</div>
+        <a href="articles.html" style="font-size:12px;color:var(--pink);font-weight:700;text-decoration:none;">Kelola Artikel</a>
+      </div>
+      <table class="adm-table">
+        <thead><tr><th>#</th><th>Judul Artikel</th><th>Kategori</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:800;color:var(--pink);font-size:13px;">1</td><td style="font-size:13px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</td><td><span class="badge badge-green" style="font-size:10px;">Nutrisi</span></td><td style="font-size:13px;font-weight:700;">12.450</td></tr>
+          <tr><td style="font-weight:800;color:var(--pink);font-size:13px;">2</td><td style="font-size:13px;">7 Olahraga Aman yang Direkomendasikan Dokter</td><td><span class="badge badge-blue" style="font-size:10px;">Olahraga</span></td><td style="font-size:13px;font-weight:700;">9.823</td></tr>
+          <tr><td style="font-weight:800;color:var(--pink);font-size:13px;">3</td><td style="font-size:13px;">Checklist Tas Persalinan yang Wajib Disiapkan</td><td><span class="badge badge-purple" style="font-size:10px;">Persiapan</span></td><td style="font-size:13px;font-weight:700;">8.167</td></tr>
+          <tr><td style="font-weight:800;color:var(--pink);font-size:13px;">4</td><td style="font-size:13px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</td><td><span class="badge badge-red" style="font-size:10px;">Persalinan</span></td><td style="font-size:13px;font-weight:700;">7.391</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+function admToggleSidebar() {
+  document.querySelector('.adm-sidebar').classList.toggle('open');
+  document.getElementById('adm-overlay').classList.toggle('show');
+}
+function admCloseSidebar() {
+  document.querySelector('.adm-sidebar').classList.remove('open');
+  document.getElementById('adm-overlay').classList.remove('show');
+}
+// Active link bottom nav
+const page = location.pathname.split('/').pop();
+document.querySelectorAll('.adm-link, .adm-bn-link').forEach(el => {
+  if (el.getAttribute('href') === page) el.classList.add('active');
+});
+</script>
+</body>
+</html>

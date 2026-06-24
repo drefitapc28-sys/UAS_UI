@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dashboard - BundaCare</title>
+  <style>
+    #sidebar{display:none;}
+    #bottom-nav{display:none;}
+    #main{margin-left:0;transition:margin-left .2s;}
+    body{opacity:0;animation:pageIn .3s ease .05s forwards;}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body style="background:var(--bg-page);">
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="s-logo">
+    <a href="dashboard.html" class="s-logo-inner">
+      <div class="s-logo-icon"><i class="fas fa-heart"></i></div>
+      <div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div>
+    </a>
+  </div>
+  <nav class="s-nav">
+    <a class="s-link active" href="dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="profile.html">
+    <div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div>
+    <div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div>
+  </a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:90px;">
+
+  <!-- TOP HEADER -->
+  <div class="top-header">
+    <div>
+      <div class="top-header-title">Halo, Bunda Sari</div>
+    </div>
+    <a href="../shop/cart.html" class="cart-btn">
+      <i class="fas fa-shopping-bag" style="font-size:16px;"></i>
+      <span class="cart-badge">3</span>
+    </a>
+  </div>
+
+  <div style="padding:18px;display:flex;flex-direction:column;gap:18px;">
+
+    <!-- CARD KEHAMILAN -->
+    <div class="preg-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;position:relative;z-index:1;">
+        <div>
+          <div style="font-size:11px;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">Usia Kehamilan</div>
+          <div style="font-size:34px;font-weight:800;line-height:1;margin-bottom:4px;">24 <span style="font-size:18px;font-weight:600;">Minggu</span></div>
+          <div style="font-size:13px;opacity:.8;">3 hari · Trimester 2</div>
+        </div>
+        <a href="tracker.html" style="background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:12px;padding:10px 14px;color:#fff;font-size:12px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.15);">
+          <i class="fas fa-chart-line"></i> Detail
+        </a>
+      </div>
+      <div style="font-size:12px;opacity:.7;margin-bottom:8px;position:relative;z-index:1;">16 minggu lagi menuju HPL · 14 Sep 2026</div>
+      <div class="prog" style="position:relative;z-index:1;"><div class="prog-fill" style="width:60%;"></div></div>
+      <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:10px;opacity:.65;position:relative;z-index:1;">
+        <span>Mgg 1</span><span style="font-weight:700;">Mgg 24</span><span>Mgg 40</span>
+      </div>
+    </div>
+
+    <!-- 3 STAT -->
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-icon" style="color:var(--pink);"><i class="fas fa-seedling"></i></div>
+        <div class="stat-val">Jagung</div>
+        <div class="stat-lbl">Ukuran Janin</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="color:#8b5cf6;"><i class="fas fa-weight-scale"></i></div>
+        <div class="stat-val">600 g</div>
+        <div class="stat-lbl">Berat</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="color:#06b6d4;"><i class="fas fa-ruler"></i></div>
+        <div class="stat-val">21 cm</div>
+        <div class="stat-lbl">Panjang</div>
+      </div>
+    </div>
+
+    <!-- TIPS -->
+    <div class="tips-box">
+      <div class="tips-icon"><i class="fas fa-lightbulb"></i></div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:#d97706;margin-bottom:4px;letter-spacing:.4px;">TIPS MINGGU INI</div>
+        <p style="font-size:13px;color:var(--text-main);line-height:1.7;margin:0;">Pastikan asupan kalsium dan zat besi terpenuhi. Perbanyak konsumsi susu, sayuran hijau, dan daging tanpa lemak untuk mendukung pertumbuhan tulang si kecil.</p>
+      </div>
+    </div>
+
+    <!-- MENU CEPAT -->
+    <div>
+      <div class="sec-title">Menu Cepat</div>
+      <div class="qmenu">
+        <a href="tracker.html" class="qmenu-item" style="background:#fdf2f8;">
+          <div class="qmenu-icon" style="background:linear-gradient(135deg,#f472b6,#ec4899);"><i class="fas fa-baby"></i></div>
+          <span>Tracker</span>
+        </a>
+        <a href="../articles/index.html" class="qmenu-item" style="background:#f5f3ff;">
+          <div class="qmenu-icon" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);"><i class="fas fa-newspaper"></i></div>
+          <span>Artikel</span>
+        </a>
+        <a href="../shop/index.html" class="qmenu-item" style="background:#fffbeb;">
+          <div class="qmenu-icon" style="background:linear-gradient(135deg,#fbbf24,#d97706);"><i class="fas fa-store"></i></div>
+          <span>Belanja</span>
+        </a>
+        <a href="../community/index.html" class="qmenu-item" style="background:#f0fdf4;">
+          <div class="qmenu-icon" style="background:linear-gradient(135deg,#34d399,#059669);"><i class="fas fa-users"></i></div>
+          <span>Komunitas</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BANNER PROMO -->
+    <div>
+      <div class="sec-title">Promo Untukmu</div>
+      <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;">
+        <div class="banner-item">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(236,72,153,.88),rgba(139,92,246,.75));display:flex;flex-direction:column;justify-content:center;padding:14px;">
+            <div style="font-size:9px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.5px;text-transform:uppercase;">Promo Spesial</div>
+            <div style="font-size:14px;font-weight:700;color:#fff;margin-top:2px;">Diskon 30% Vitamin</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.75);margin-top:3px;">s.d. 31 Mei 2026</div>
+          </div>
+        </div>
+        <div class="banner-item">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.88),rgba(79,70,229,.75));display:flex;flex-direction:column;justify-content:center;padding:14px;">
+            <div style="font-size:9px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.5px;text-transform:uppercase;">Gratis Ongkir</div>
+            <div style="font-size:14px;font-weight:700;color:#fff;margin-top:2px;">Pakaian Bumil</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.75);margin-top:3px;">Min. Rp 150.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTIKEL REKOMENDASI -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div class="sec-title" style="margin-bottom:0;">Artikel untuk Anda</div>
+        <a href="../articles/index.html" style="font-size:12px;color:var(--pink);font-weight:700;text-decoration:none;">Lihat Semua</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <a href="../articles/detail-user.html" class="art-card" style="display:flex;gap:12px;align-items:center;padding:14px;">
+          <div style="width:70px;height:70px;border-radius:12px;overflow:hidden;flex-shrink:0;background:var(--border-soft);position:relative;">
+            <img src="../images/articles/janin-minggu24.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+          </div>
+          <div style="flex:1;">
+            <span class="badge badge-pink" style="font-size:10px;margin-bottom:6px;">Perkembangan</span>
+            <div style="font-size:14px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">Perkembangan Janin Minggu ke-24</div>
+            <div style="font-size:11px;color:var(--text-faint);">dr. Rina Wijaya · 5 mnt baca</div>
+          </div>
+        </a>
+
+        <a href="../articles/detail-user.html" class="art-card" style="display:flex;gap:12px;align-items:center;padding:14px;">
+          <div style="width:70px;height:70px;border-radius:12px;overflow:hidden;flex-shrink:0;background:var(--border-soft);position:relative;">
+            <img src="../images/articles/suplemen-bumil.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+          </div>
+          <div style="flex:1;">
+            <span class="badge badge-green" style="font-size:10px;margin-bottom:6px;">Nutrisi</span>
+            <div style="font-size:14px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">Suplemen Wajib Ibu Hamil Trimester 2</div>
+            <div style="font-size:11px;color:var(--text-faint);">Apt. Maya Dewi · 4 mnt baca</div>
+          </div>
+        </a>
+
+        <a href="../articles/detail-user.html" class="art-card" style="display:flex;gap:12px;align-items:center;padding:14px;">
+          <div style="width:70px;height:70px;border-radius:12px;overflow:hidden;flex-shrink:0;background:var(--border-soft);position:relative;">
+            <img src="../images/articles/tidur-hamil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+          </div>
+          <div style="flex:1;">
+            <span class="badge badge-blue" style="font-size:10px;margin-bottom:6px;">Tips</span>
+            <div style="font-size:14px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">Posisi Tidur Terbaik untuk Ibu Hamil</div>
+            <div style="font-size:11px;color:var(--text-faint);">dr. Hana Kusuma · 3 mnt baca</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- BOTTOM NAV -->
+<nav id="bottom-nav">
+  <a class="bn-link active" href="dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

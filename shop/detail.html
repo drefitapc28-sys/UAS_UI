@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Detail Produk - BundaCare</title>
+  <style>
+    #sidebar{display:none;}#bottom-nav{display:none;}
+    #main{transition:margin-left .2s;}
+    body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}
+
+    /* TOP BAR */
+    .det-topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;
+      border-bottom:1px solid var(--border);
+      background:#fff;
+      position:sticky;top:0;z-index:50;
+    }
+
+    /* LAYOUT WRAPPER */
+    .det-body{
+      padding:20px 18px 140px;
+      display:flex;flex-direction:column;gap:20px;
+    }
+
+    /* GRID: mobile=1col, desktop=2col */
+    .det-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* GAMBAR */
+    .det-img-main{
+      width:100%;
+      max-height:320px;
+      border-radius:var(--r-lg);
+      overflow:hidden;
+      background:#f5f0ff;
+      position:relative;
+    }
+    .det-img-main img{
+      width:100%;height:100%;
+      object-fit:contain;
+      display:block;
+      max-height:320px;
+    }
+    .det-thumbs{
+      display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;
+    }
+    .det-thumb{
+      width:60px;height:60px;border-radius:10px;overflow:hidden;
+      border:2px solid var(--border);cursor:pointer;flex-shrink:0;
+      background:#f5f0ff;transition:border-color .15s;
+    }
+    .det-thumb.active{border-color:var(--pink);}
+    .det-thumb img{width:100%;height:100%;object-fit:cover;}
+
+    /* INFO */
+    .det-info{display:flex;flex-direction:column;gap:14px;}
+
+    /* Varian */
+    .var-btn{
+      padding:7px 14px;border:2px solid var(--border);
+      border-radius:var(--r-md);font-size:13px;font-weight:600;
+      color:var(--text-soft);cursor:pointer;background:#fff;
+      transition:all .15s;font-family:inherit;
+    }
+    .var-btn.active{border-color:var(--pink);color:var(--pink);background:var(--pink-pale);}
+
+    /* Qty */
+    .qty-btn{
+      width:32px;height:32px;border-radius:var(--r-md);
+      border:1.5px solid var(--border);background:#fff;
+      font-size:18px;font-weight:600;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--text-dark);transition:border-color .15s;font-family:inherit;
+    }
+    .qty-btn:hover{border-color:var(--pink);color:var(--pink);}
+
+    /* Desktop tombol inline */
+    .det-desk-actions{display:none;gap:10px;margin-top:4px;}
+
+    /* ===== DESKTOP ===== */
+    @media(min-width:768px){
+      #main{margin-left:224px!important;}
+      .det-body{padding:24px 28px 40px;}
+      .det-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;}
+      .det-img-main{max-height:400px;}
+      .det-img-main img{max-height:400px;}
+      .det-desk-actions{display:flex;}
+      .shop-bottom-bar{display:none!important;}
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo">
+    <a href="../user/dashboard.html" class="s-logo-inner">
+      <div class="s-logo-icon"><i class="fas fa-heart"></i></div>
+      <div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div>
+    </a>
+  </div>
+  <nav class="s-nav">
+    <a class="s-link" href="../user/dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="../user/tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link active" href="index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="../user/profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="../user/profile.html">
+    <div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div>
+    <div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div>
+  </a>
+</aside>
+
+<main id="main" data-active-nav="shop" style="min-height:100vh;overflow-x:hidden;">
+
+  <!-- TOP BAR -->
+  <div class="det-topbar">
+    <a href="index-user.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <span style="font-size:15px;font-weight:700;color:var(--text-dark);">Detail Produk</span>
+    <a href="cart.html" style="position:relative;width:36px;height:36px;background:var(--pink-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;color:var(--pink);">
+      <i class="fas fa-shopping-bag" style="font-size:14px;"></i>
+      <span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:var(--pink);border-radius:50%;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;">3</span>
+    </a>
+  </div>
+
+  <div class="det-body">
+
+    <!-- GRID 2 KOLOM di desktop -->
+    <div class="det-grid">
+
+      <!-- KOLOM KIRI: GAMBAR -->
+      <div>
+        <div class="det-img-main">
+          <img id="main-img" src="../images/products/vitamin-prenatal.jpg" alt="Vitamin Prenatal" onerror="this.style.display='none'"/>
+          <span class="price-disc" style="position:absolute;top:10px;left:10px;font-size:12px;padding:3px 8px;">-20%</span>
+          <button onclick="toggleWishlist(this)" style="position:absolute;top:10px;right:10px;width:34px;height:34px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--pink);cursor:pointer;font-size:15px;">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+        <!-- Thumbnail -->
+        <div class="det-thumbs">
+          <div class="det-thumb active" onclick="switchImg(this,'../images/products/vitamin-prenatal.jpg')">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" onerror="this.parentElement.style.background='#f5f0ff'"/>
+          </div>
+          <div class="det-thumb" onclick="switchImg(this,'../images/products/vitamin-prenatal.jpg')">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" onerror="this.parentElement.style.background='#f5f0ff'"/>
+          </div>
+          <div class="det-thumb" onclick="switchImg(this,'../images/products/vitamin-prenatal.jpg')">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" onerror="this.parentElement.style.background='#f5f0ff'"/>
+          </div>
+          <div class="det-thumb" onclick="switchImg(this,'../images/products/vitamin-prenatal.jpg')">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" onerror="this.parentElement.style.background='#f5f0ff'"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOLOM KANAN: INFO -->
+      <div class="det-info">
+
+        <!-- Nama & rating -->
+        <div>
+          <div style="font-size:11px;color:var(--pink);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;">Vitamin &amp; Suplemen</div>
+          <h1 style="font-size:20px;font-weight:800;color:var(--text-dark);line-height:1.3;margin-bottom:10px;">Vitamin Prenatal Plus DHA 90 Kapsul</h1>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+            <span class="stars" style="font-size:14px;">★★★★★</span>
+            <span style="font-size:13px;font-weight:700;color:var(--text-dark);">4.9</span>
+            <span style="font-size:12px;color:var(--text-muted);">(234 ulasan)</span>
+            <span style="font-size:12px;color:var(--text-muted);">· 1.2k terjual</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="price-main" style="font-size:24px;font-weight:800;">Rp 148.000</span>
+            <span class="price-orig" style="font-size:14px;">Rp 185.000</span>
+            <span style="background:#fef3c7;color:#d97706;font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;">Hemat Rp 37.000</span>
+          </div>
+        </div>
+
+        <!-- Varian -->
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Pilih Varian</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="var-btn active" onclick="selectVar(this)">90 Kapsul</button>
+            <button class="var-btn" onclick="selectVar(this)">60 Kapsul</button>
+            <button class="var-btn" onclick="selectVar(this)">180 Kapsul</button>
+          </div>
+        </div>
+
+        <!-- Qty -->
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Jumlah</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <span id="qty-val" style="font-size:15px;font-weight:700;color:var(--text-dark);min-width:24px;text-align:center;">1</span>
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+            <span style="font-size:12px;color:var(--text-muted);">Stok: 142</span>
+          </div>
+        </div>
+
+        <!-- Pengiriman -->
+        <div class="card" style="padding:14px;">
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-soft);display:flex;align-items:center;gap:7px;"><i class="fas fa-store" style="color:var(--pink);width:14px;"></i> Dikirim dari</span>
+              <span style="font-weight:600;color:var(--text-dark);">Jakarta Selatan</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-soft);display:flex;align-items:center;gap:7px;"><i class="fas fa-truck" style="color:var(--pink);width:14px;"></i> Ongkir</span>
+              <span style="font-weight:600;color:var(--text-dark);">Mulai Rp 15.000</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-soft);display:flex;align-items:center;gap:7px;"><i class="fas fa-clock" style="color:var(--pink);width:14px;"></i> Estimasi tiba</span>
+              <span style="font-weight:600;color:var(--text-dark);">2–3 hari kerja</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;">
+              <span style="color:var(--text-soft);display:flex;align-items:center;gap:7px;"><i class="fas fa-rotate-left" style="color:var(--pink);width:14px;"></i> Garansi</span>
+              <span style="font-weight:600;color:#10b981;">7 Hari Retur</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol desktop -->
+        <div class="det-desk-actions">
+          <a href="cart.html" style="flex:1;padding:12px;background:var(--pink-pale);border-radius:var(--r-lg);font-size:14px;font-weight:700;color:var(--pink);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;">
+            <i class="fas fa-shopping-cart"></i> Keranjang
+          </a>
+          <a href="checkout.html" class="btn btn-pink" style="flex:1;padding:12px;text-align:center;font-size:14px;">
+            Beli Sekarang
+          </a>
+        </div>
+
+      </div><!-- end info -->
+    </div><!-- end grid -->
+
+    <!-- DESKRIPSI -->
+    <div class="card" style="padding:18px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:12px;">Deskripsi Produk</div>
+      <div style="font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:14px;">
+        Vitamin Prenatal Plus DHA diformulasikan khusus untuk mendukung kesehatan ibu hamil dan perkembangan optimal janin. Mengandung DHA, asam folat, zat besi, kalsium, dan vitamin esensial lainnya.
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-check-circle" style="color:#10b981;margin-top:2px;flex-shrink:0;"></i><span style="font-size:13px;color:var(--text-soft);">Mengandung DHA 200mg untuk perkembangan otak janin</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-check-circle" style="color:#10b981;margin-top:2px;flex-shrink:0;"></i><span style="font-size:13px;color:var(--text-soft);">Asam folat 800mcg mencegah cacat tabung saraf</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-check-circle" style="color:#10b981;margin-top:2px;flex-shrink:0;"></i><span style="font-size:13px;color:var(--text-soft);">Zat besi 27mg cegah anemia pada bumil</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><i class="fas fa-check-circle" style="color:#10b981;margin-top:2px;flex-shrink:0;"></i><span style="font-size:13px;color:var(--text-soft);">BPOM RI approved, aman untuk semua trimester</span></div>
+      </div>
+    </div>
+
+    <!-- ULASAN -->
+    <div class="card" style="padding:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font-size:15px;font-weight:700;color:var(--text-dark);">Ulasan Pembeli</div>
+        <a href="#" style="font-size:12px;color:var(--pink);font-weight:600;">Lihat Semua</a>
+      </div>
+      <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:34px;height:34px;border-radius:50%;background:var(--pink);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">R</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Rizka A.</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span class="stars" style="font-size:11px;">★★★★★</span> · 2 hari lalu</div>
+            <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Produknya bagus banget! Vitaminnya mudah ditelan, tidak menimbulkan mual. Sudah pakai sejak trimester 1 dan kandungan normal semua.</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-start;">
+        <div style="width:34px;height:34px;border-radius:50%;background:#6366f1;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
+        <div style="flex:1;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Dewi P.</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span class="stars" style="font-size:11px;">★★★★★</span> · 5 hari lalu</div>
+          <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Recommended! Dokter kandungan saya yang merekomendasikan ini. Pengiriman cepat dan kemasannya aman.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end det-body -->
+</main>
+
+<!-- BOTTOM ACTION BAR (mobile only) -->
+<div class="shop-bottom-bar">
+  <div class="shop-bottom-bar-inner">
+    <a href="cart.html" class="shop-btn-cart"><i class="fas fa-shopping-cart"></i> Keranjang</a>
+    <a href="checkout.html" class="btn btn-pink shop-btn-buy">Beli Sekarang</a>
+  </div>
+</div>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="../user/dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="../user/tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../user/profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+showNav();
+function switchImg(thumb, src) {
+  document.getElementById('main-img').src = src;
+  document.querySelectorAll('.det-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+let qty = 1;
+function changeQty(d) {
+  qty = Math.max(1, Math.min(99, qty + d));
+  document.getElementById('qty-val').textContent = qty;
+}
+function selectVar(btn) {
+  document.querySelectorAll('.var-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function toggleWishlist(btn) {
+  const i = btn.querySelector('i');
+  const on = i.classList.toggle('fas');
+  i.classList.toggle('far', !on);
+  toast(on ? 'Ditambah ke wishlist!' : 'Dihapus dari wishlist');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Pengingat - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{margin-left:0;transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link active" href="profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:80px;">
+
+  <div class="page-header">
+    <a href="profile.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Pengingat</h2>
+    <button class="btn btn-pink btn-sm" onclick="openModal('modal-add')"><i class="fas fa-plus"></i> Tambah</button>
+  </div>
+
+  <div style="padding:18px;display:flex;flex-direction:column;gap:12px;">
+
+    <div class="card" style="padding:18px;display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;background:#fce7f3;border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--pink);font-size:20px;flex-shrink:0;"><i class="fas fa-pills"></i></div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Minum Vitamin Prenatal</div><div style="font-size:12px;color:var(--text-muted);">Setiap hari · 08:00</div></div>
+      <div class="toggle on" onclick="tog(this)"></div>
+    </div>
+
+    <div class="card" style="padding:18px;display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;background:#d1fae5;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#059669;font-size:20px;flex-shrink:0;"><i class="fas fa-glass-water"></i></div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Pengingat Minum Air</div><div style="font-size:12px;color:var(--text-muted);">Setiap 2 jam · 08:00 – 20:00</div></div>
+      <div class="toggle on" onclick="tog(this)"></div>
+    </div>
+
+    <div class="card" style="padding:18px;display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;background:#dbeafe;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#2563eb;font-size:20px;flex-shrink:0;"><i class="fas fa-stethoscope"></i></div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Kontrol ke Dokter</div><div style="font-size:12px;color:var(--text-muted);">Setiap 4 minggu · 10:00</div></div>
+      <div class="toggle on" onclick="tog(this)"></div>
+    </div>
+
+    <div class="card" style="padding:18px;display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;background:#fef3c7;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#d97706;font-size:20px;flex-shrink:0;"><i class="fas fa-dumbbell"></i></div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Senam Prenatal</div><div style="font-size:12px;color:var(--text-muted);">Senin, Rabu, Jumat · 07:30</div></div>
+      <div class="toggle" onclick="tog(this)"></div>
+    </div>
+
+    <div class="card" style="padding:18px;display:flex;align-items:center;gap:14px;">
+      <div style="width:44px;height:44px;background:#ede9fe;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#7c3aed;font-size:20px;flex-shrink:0;"><i class="fas fa-moon"></i></div>
+      <div style="flex:1;"><div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:2px;">Waktu Istirahat</div><div style="font-size:12px;color:var(--text-muted);">Setiap hari · 21:30</div></div>
+      <div class="toggle" onclick="tog(this)"></div>
+    </div>
+
+  </div>
+</main>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link active" href="profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div class="modal" id="modal-add">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Tambah Pengingat Baru</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div><label class="flabel">Judul Pengingat</label><input class="inp" type="text" placeholder="Contoh: Minum Asam Folat"/></div>
+      <div><label class="flabel">Jam</label><input class="inp" type="time" value="08:00"/></div>
+      <div><label class="flabel">Frekuensi</label><select class="inp"><option>Setiap hari</option><option>Setiap 2 jam</option><option>Setiap minggu</option><option>Senin, Rabu, Jumat</option></select></div>
+      <button class="btn btn-pink btn-full" style="margin-top:4px;" onclick="toast('Pengingat berhasil ditambahkan');closeModal('modal-add')">Simpan Pengingat</button>
+      <button class="btn btn-gray btn-full" onclick="closeModal('modal-add')">Batal</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Komunitas - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="../user/dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="../user/dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="../user/tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link active" href="index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="../user/profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="../user/profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:90px;">
+
+  <div class="page-header">
+    <a href="../user/dashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Komunitas</h2>
+    <button onclick="openPost()" style="width:36px;height:36px;background:var(--pink);border-radius:var(--r-md);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;"><i class="fas fa-plus" style="font-size:14px;"></i></button>
+  </div>
+
+  <!-- SEARCH -->
+  <div style="padding:0 18px 14px;">
+    <div class="inp-wrap">
+      <i class="fas fa-search inp-icon"></i>
+      <input class="inp" type="text" placeholder="Cari diskusi..."/>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div style="display:flex;gap:6px;overflow-x:auto;padding:0 18px 14px;scrollbar-width:none;" data-tabs>
+    <button class="tab-btn active" onclick="tab(this,'cm-terbaru')">Terbaru</button>
+    <button class="tab-btn" onclick="tab(this,'cm-populer')">Populer</button>
+    <button class="tab-btn" onclick="tab(this,'cm-trimester1')">Trimester 1</button>
+    <button class="tab-btn" onclick="tab(this,'cm-trimester2')">Trimester 2</button>
+    <button class="tab-btn" onclick="tab(this,'cm-trimester3')">Trimester 3</button>
+    <button class="tab-btn" onclick="tab(this,'cm-nutrisi')">Nutrisi</button>
+  </div>
+
+  <!-- TAB TERBARU -->
+  <div class="tab-content active" id="cm-terbaru">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+
+      <!-- POST 1 -->
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--pink);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Anisa Putri <span style="background:var(--pink-pale);color:var(--pink);font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;margin-left:4px;">Trimester 2</span></div>
+            <div style="font-size:11px;color:var(--text-muted);">2 jam lalu</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Mual di trimester 2, normal nggak ya?</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:12px;">Halo bunda-bunda, saya lagi di minggu 16 dan masih sering mual terutama pagi dan malam. Katanya trimester 2 harusnya sudah mendingan tapi saya masih gitu. Ada yang punya pengalaman sama?</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 24</button>
+          <button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 12 Komentar</button>
+          <button onclick="toast('Tersimpan!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;margin-left:auto;"><i class="far fa-bookmark"></i></button>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#6366f1;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">R</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Rizka Amelia <span style="background:#eff6ff;color:#2563eb;font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;margin-left:4px;">Trimester 3</span></div>
+            <div style="font-size:11px;color:var(--text-muted);">5 jam lalu</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Rekomendasi klinik bersalin di Surabaya?</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:12px;">Bunda-bunda yang di Surabaya, ada rekomendasi klinik atau RS bersalin yang bagus dan ramah bumil? Budget menengah, yang penting dokternya oke dan fasilitasnya bersih. Terima kasih sebelumnya 🙏</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 38</button>
+          <button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 27 Komentar</button>
+          <button onclick="toast('Tersimpan!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;margin-left:auto;"><i class="far fa-bookmark"></i></button>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#10b981;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Siti Nuraini <span style="background:#d1fae5;color:#059669;font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;margin-left:4px;">Trimester 1</span></div>
+            <div style="font-size:11px;color:var(--text-muted);">1 hari lalu</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Sharing cerita USG pertama ❤️</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:12px;">Alhamdulillah tadi habis USG pertama di minggu 8. Denyut jantung bayi sudah terdengar jelas, dokter bilang semuanya baik. Rasanya terharu banget sampai nangis di klinik 😭 Semangat untuk semua bunda yang lagi hamil!</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 89</button>
+          <button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 43 Komentar</button>
+          <button onclick="toast('Tersimpan!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;margin-left:auto;"><i class="far fa-bookmark"></i></button>
+        </div>
+      </div>
+
+      <!-- POST 4 -->
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#f59e0b;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Dewi Kartika <span style="background:var(--pink-pale);color:var(--pink);font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;margin-left:4px;">Trimester 2</span></div>
+            <div style="font-size:11px;color:var(--text-muted);">2 hari lalu</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Tips makan sehat saat ngidam makanan pedas</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:12px;">Siapa yang ngidam makanan pedas terus? Saya mau sharing tips yang dokter kasih supaya tetap bisa makan pedas tapi aman untuk janin. Ternyata boleh, asal tahu batasannya...</div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 62</button>
+          <button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 31 Komentar</button>
+          <button onclick="toast('Tersimpan!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;margin-left:auto;"><i class="far fa-bookmark"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB POPULER -->
+  <div class="tab-content" id="cm-populer">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#10b981;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Siti Nuraini</div><div style="font-size:11px;color:var(--text-muted);">3 hari lalu · 89 suka</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Sharing cerita USG pertama ❤️</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Alhamdulillah denyut jantung bayi sudah terdengar jelas di minggu 8. Rasanya terharu banget sampai nangis! 😭</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-heart"></i> 89</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="fas fa-comment"></i> 43</button></div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#6366f1;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">R</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Rizka Amelia</div><div style="font-size:11px;color:var(--text-muted);">5 jam lalu · 38 suka</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Rekomendasi klinik bersalin di Surabaya?</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Bunda-bunda yang di Surabaya, ada rekomendasi klinik atau RS bersalin yang bagus?</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 38</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="fas fa-comment"></i> 27</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB TRIMESTER 1 -->
+  <div class="tab-content" id="cm-trimester1">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#10b981;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Siti Nuraini</div><div style="font-size:11px;color:var(--text-muted);">1 hari lalu</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Sharing cerita USG pertama ❤️</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Alhamdulillah tadi habis USG pertama di minggu 8. Denyut jantung bayi sudah terdengar jelas!</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 89</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 43</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB TRIMESTER 2 -->
+  <div class="tab-content" id="cm-trimester2">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--pink);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Anisa Putri</div><div style="font-size:11px;color:var(--text-muted);">2 jam lalu</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Mual di trimester 2, normal nggak ya?</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Saya di minggu 16 masih sering mual. Ada yang punya pengalaman sama?</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 24</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 12</button></div>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#f59e0b;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Dewi Kartika</div><div style="font-size:11px;color:var(--text-muted);">2 hari lalu</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Tips makan sehat saat ngidam makanan pedas</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Sharing tips dari dokter supaya tetap bisa makan pedas tapi aman untuk janin.</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 62</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 31</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB TRIMESTER 3 -->
+  <div class="tab-content" id="cm-trimester3">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#6366f1;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">R</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Rizka Amelia</div><div style="font-size:11px;color:var(--text-muted);">5 jam lalu</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Rekomendasi klinik bersalin di Surabaya?</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Ada yang bisa rekomendasikan RS/klinik bersalin yang bagus di Surabaya?</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 38</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 27</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB NUTRISI -->
+  <div class="tab-content" id="cm-nutrisi">
+    <div style="padding:0 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:16px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#f59e0b;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Dewi Kartika</div><div style="font-size:11px;color:var(--text-muted);">2 hari lalu</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-dark);font-weight:600;margin-bottom:6px;">Tips makan sehat saat ngidam makanan pedas</div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.5;margin-bottom:12px;">Sharing tips dari dokter supaya tetap bisa makan pedas tapi aman untuk janin.</div>
+        <div style="display:flex;align-items:center;gap:16px;"><button onclick="toast('Disukai!')" style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);cursor:pointer;"><i class="far fa-heart"></i> 62</button><button style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--pink);font-weight:600;cursor:pointer;"><i class="fas fa-comment"></i> 31</button></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- MODAL BUAT POST -->
+<div id="post-modal" onclick="if(event.target===this)closePost()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:16px;">
+  <div style="background:#fff;border-radius:20px;padding:24px 18px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text-dark);">Buat Diskusi Baru</div>
+      <button onclick="closePost()" style="width:32px;height:32px;border-radius:50%;background:var(--bg-page);display:flex;align-items:center;justify-content:center;color:var(--text-muted);cursor:pointer;font-size:14px;"><i class="fas fa-times"></i></button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:14px;">
+      <div style="width:38px;height:38px;border-radius:50%;background:var(--pink);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">B</div>
+      <div style="flex:1;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">Bunda Sari</div>
+        <select class="inp" style="font-size:13px;margin-bottom:10px;padding:8px 12px;">
+          <option>Pilih Kategori...</option>
+          <option>Trimester 1</option>
+          <option>Trimester 2</option>
+          <option>Trimester 3</option>
+          <option>Nutrisi</option>
+          <option>Olahraga</option>
+          <option>Persiapan Persalinan</option>
+          <option>Umum</option>
+        </select>
+        <input class="inp" type="text" placeholder="Judul diskusi..." style="font-size:13px;margin-bottom:10px;"/>
+        <textarea class="inp" rows="4" placeholder="Ceritakan pengalamanmu atau ajukan pertanyaan..." style="resize:none;font-size:13px;"></textarea>
+      </div>
+    </div>
+    <button onclick="toast('Postingan dikirim!');closePost();" class="btn btn-pink btn-full" style="font-size:14px;padding:12px;">Kirim Diskusi</button>
+  </div>
+</div>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="../user/dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="../user/tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link active" href="index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="../user/profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+showNav();
+function openPost(){const m=document.getElementById('post-modal');m.style.display='flex';}
+function closePost(){const m=document.getElementById('post-modal');m.style.display='none';}
+</script>
+</body>
+</html>

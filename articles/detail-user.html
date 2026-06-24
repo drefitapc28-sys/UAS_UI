@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Panduan Nutrisi Lengkap - BundaCare</title>
+  <style>
+    #sidebar{display:none;}#bottom-nav{display:none;}#main{transition:margin-left .2s;}
+    body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}
+    .art-body p{margin-bottom:18px;font-size:15px;color:var(--text-soft);line-height:1.85;}
+    .art-body h3{font-size:19px;font-weight:700;color:var(--text-dark);margin:28px 0 12px;}
+    .comment-box{border:1.5px solid var(--border);border-radius:var(--r-lg);padding:14px;font-size:13px;color:var(--text-dark);line-height:1.6;margin-bottom:8px;background:#fff;}
+    .comment-box:focus{outline:none;border-color:var(--pink);}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="s-logo">
+    <a href="../user/dashboard.html" class="s-logo-inner">
+      <div class="s-logo-icon"><i class="fas fa-heart"></i></div>
+      <div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div>
+    </a>
+  </div>
+  <nav class="s-nav">
+    <a class="s-link" href="../user/dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="../user/tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link active" href="index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="../user/profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="../user/profile.html">
+    <div class="s-user-av">
+      <img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/>
+      <span>B</span>
+    </div>
+    <div>
+      <div class="s-user-name">Bunda Sari</div>
+      <div class="s-user-sub">Lihat Profil</div>
+    </div>
+  </a>
+</aside>
+
+<main id="main" data-active-nav="articles" style="min-height:100vh;padding-bottom:80px;">
+
+  <!-- HEADER BAR -->
+  <div class="page-header">
+    <a href="index-user.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Artikel</h2>
+    <div style="display:flex;gap:8px;">
+      <button id="btn-bookmark" onclick="toggleBookmark()" style="width:36px;height:36px;background:var(--pink-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;color:var(--pink);cursor:pointer;font-size:14px;"><i class="far fa-bookmark"></i></button>
+      <button onclick="toast('Tautan disalin!')" style="width:36px;height:36px;background:var(--pink-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;color:var(--pink);cursor:pointer;font-size:14px;"><i class="fas fa-share-nodes"></i></button>
+    </div>
+  </div>
+
+  <!-- HERO IMAGE -->
+  <div style="position:relative;height:210px;background:linear-gradient(135deg,#f5f0ff,#fdf2f8);overflow:hidden;">
+    <img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.45));"></div>
+    <span class="badge badge-green" style="position:absolute;bottom:14px;left:16px;">Nutrisi</span>
+    <!-- Read progress bar -->
+    <div id="progress-bar" style="position:absolute;bottom:0;left:0;height:3px;background:var(--pink);width:0%;transition:width .2s;"></div>
+  </div>
+
+  <div style="padding:20px 18px 0;">
+
+    <!-- JUDUL & META -->
+    <h1 style="font-size:22px;font-weight:800;color:var(--text-dark);line-height:1.35;margin-bottom:14px;">Panduan Nutrisi Lengkap untuk Setiap Trimester Kehamilan</h1>
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">dr</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text-dark);">dr. Rina Wijaya, Sp.OG</div>
+          <div style="font-size:11px;color:var(--text-muted);">Dokter Spesialis Kandungan</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:16px;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap;">
+      <span style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><i class="fas fa-calendar" style="color:var(--pink);font-size:11px;"></i>18 Mei 2026</span>
+      <span style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><i class="fas fa-clock" style="color:var(--pink);font-size:11px;"></i>5 menit baca</span>
+      <span style="font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:5px;"><i class="fas fa-eye" style="color:var(--pink);font-size:11px;"></i>12.450 dibaca</span>
+    </div>
+
+    <!-- ISI ARTIKEL -->
+    <div class="art-body">
+
+      <p>Nutrisi yang tepat selama kehamilan adalah fondasi kesehatan ibu dan janin. Setiap trimester memiliki kebutuhan gizi yang berbeda seiring perkembangan bayi yang semakin pesat.</p>
+
+      <h3>🌱 Trimester Pertama: Fondasi Pembentukan</h3>
+      <p>Pada trimester pertama (minggu 1–12), organ vital bayi mulai terbentuk. Asam folat menjadi nutrisi paling penting pada fase ini karena membantu mencegah cacat tabung saraf. Direkomendasikan mengonsumsi 400–800 mcg asam folat setiap hari dari suplemen maupun makanan seperti sayuran hijau dan kacang-kacangan.</p>
+      <p>Meskipun banyak ibu hamil mengalami mual di trimester pertama, penting untuk tetap menjaga asupan gizi. Makanlah dalam porsi kecil namun sering, pilih makanan yang mudah dicerna seperti roti, crackers, dan pisang.</p>
+
+      <div class="info-box info-box-pink" style="margin:24px 0;">
+        <i class="fas fa-circle-info" style="color:var(--pink);margin-top:2px;flex-shrink:0;"></i>
+        <div><strong style="color:var(--text-dark);">Catatan Penting:</strong> Hindari ikan dengan kandungan merkuri tinggi seperti hiu dan king mackerel selama kehamilan. Batasi tuna hingga 340 gram per minggu dan pastikan makanan laut dimasak hingga matang.</div>
+      </div>
+
+      <h3>🌿 Trimester Kedua: Pertumbuhan Pesat</h3>
+      <p>Trimester kedua (minggu 13–28) biasanya lebih nyaman karena gejala mual berkurang. Kebutuhan kalori meningkat sekitar 340 kalori per hari. Pastikan asupan kalsium mencukupi (1.000 mg per hari) untuk mendukung pembentukan tulang dan gigi bayi.</p>
+      <p>Protein sangat dibutuhkan pada fase ini. Konsumsi 70–100 gram protein per hari dari sumber berkualitas seperti daging tanpa lemak, ikan, telur, tahu, dan tempe.</p>
+
+      <!-- HIGHLIGHT BOX -->
+      <div style="background:linear-gradient(135deg,#fdf2f8,#f5f0ff);border-radius:var(--r-lg);padding:18px;margin:24px 0;border-left:4px solid var(--pink);">
+        <div style="font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">📋 Checklist Nutrisi Trimester 2</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-soft);"><i class="fas fa-check-circle" style="color:#10b981;flex-shrink:0;"></i> Kalsium 1.000 mg/hari (susu, keju, brokoli)</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-soft);"><i class="fas fa-check-circle" style="color:#10b981;flex-shrink:0;"></i> Zat besi 27 mg/hari (daging merah, bayam)</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-soft);"><i class="fas fa-check-circle" style="color:#10b981;flex-shrink:0;"></i> Protein 70–100 gram/hari</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-soft);"><i class="fas fa-check-circle" style="color:#10b981;flex-shrink:0;"></i> Air putih minimal 2,3 liter/hari</div>
+        </div>
+      </div>
+
+      <h3>🌸 Trimester Ketiga: Persiapan Kelahiran</h3>
+      <p>Pada trimester ketiga (minggu 29–40), bayi mengalami penambahan berat badan yang signifikan. Kebutuhan kalori meningkat sekitar 450 kalori per hari. Omega-3 DHA sangat penting untuk perkembangan otak dan penglihatan bayi.</p>
+      <p>Magnesium membantu mencegah kram kaki yang umum di akhir kehamilan, sementara vitamin K berperan dalam pembekuan darah yang penting saat persalinan.</p>
+
+      <div class="info-box" style="margin:24px 0;background:#dbeafe;border-radius:var(--r-lg);padding:16px;display:flex;gap:12px;">
+        <i class="fas fa-lightbulb" style="color:#2563eb;margin-top:2px;flex-shrink:0;"></i>
+        <div style="font-size:13px;color:#1e40af;line-height:1.6;"><strong>Tips Dokter:</strong> Konsultasikan selalu kebutuhan suplemen dengan dokter kandungan Anda. Jangan mengonsumsi vitamin A dosis tinggi karena berisiko bagi janin.</div>
+      </div>
+
+      <!-- TAGS -->
+      <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border);">
+        <div style="font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;">Tag Artikel</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-gray">Nutrisi</span>
+          <span class="badge badge-gray">Kehamilan</span>
+          <span class="badge badge-gray">Trimester</span>
+          <span class="badge badge-gray">Vitamin</span>
+          <span class="badge badge-gray">Kesehatan Ibu</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIKE & SHARE BAR -->
+    <div style="display:flex;align-items:center;gap:12px;margin-top:24px;padding:16px;background:var(--bg-page);border-radius:var(--r-lg);">
+      <button id="btn-like" onclick="toggleLike()" style="display:flex;align-items:center;gap:7px;padding:10px 18px;border:1.5px solid var(--border);border-radius:var(--r-lg);font-size:13px;font-weight:600;color:var(--text-soft);cursor:pointer;flex:1;justify-content:center;">
+        <i class="far fa-heart" style="font-size:16px;"></i> <span id="like-count">247</span> Suka
+      </button>
+      <button onclick="toast('Artikel disimpan ke koleksi!')" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--pink-pale);border-radius:var(--r-lg);font-size:13px;font-weight:600;color:var(--pink);cursor:pointer;flex:1;justify-content:center;">
+        <i class="far fa-bookmark" style="font-size:15px;"></i> Simpan
+      </button>
+      <button onclick="toast('Tautan disalin!')" style="display:flex;align-items:center;gap:7px;padding:10px 18px;background:var(--pink-pale);border-radius:var(--r-lg);font-size:13px;font-weight:600;color:var(--pink);cursor:pointer;flex:1;justify-content:center;">
+        <i class="fas fa-share-nodes" style="font-size:14px;"></i> Bagikan
+      </button>
+    </div>
+
+    <!-- ARTIKEL TERKAIT -->
+    <div style="margin-top:28px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:14px;">Artikel Terkait</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:70px;height:70px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f0fdf4;"><img src="../images/articles/asam-folat.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;">
+            <span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:5px;display:inline-block;">Nutrisi</span>
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;">Pentingnya Asam Folat di Awal Kehamilan</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Apt. Maya Dewi · 4 mnt</div>
+          </div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:70px;height:70px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fffbeb;"><img src="../images/articles/suplemen-bumil.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;">
+            <span class="badge badge-green" style="font-size:10px;padding:2px 8px;margin-bottom:5px;display:inline-block;">Nutrisi</span>
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;">Suplemen Wajib Ibu Hamil Trimester 2</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">dr. Rina Wijaya · 5 mnt</div>
+          </div>
+        </a>
+        <a href="detail-user.html" class="card" style="display:flex;gap:12px;padding:14px;text-decoration:none;align-items:flex-start;">
+          <div style="width:70px;height:70px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;"><img src="../images/articles/olahraga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/></div>
+          <div style="flex:1;">
+            <span class="badge badge-blue" style="font-size:10px;padding:2px 8px;margin-bottom:5px;display:inline-block;">Olahraga</span>
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);line-height:1.4;">7 Olahraga Aman yang Direkomendasikan Dokter</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">dr. Hana Kusuma · 4 mnt</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- KOMENTAR -->
+    <div style="margin-top:28px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:16px;">Komentar <span style="font-size:13px;color:var(--text-muted);font-weight:500;">(18)</span></div>
+
+      <!-- Form Komentar -->
+      <div style="display:flex;gap:10px;margin-bottom:20px;align-items:flex-start;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--pink);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">B</div>
+        <div style="flex:1;">
+          <textarea class="comment-box" rows="3" placeholder="Tulis komentar atau pertanyaan kamu..." style="width:100%;resize:none;"></textarea>
+          <button onclick="submitKomentar()" style="padding:9px 20px;background:var(--pink);border-radius:var(--r-md);font-size:13px;font-weight:700;color:#fff;cursor:pointer;">Kirim</button>
+        </div>
+      </div>
+
+      <!-- Daftar Komentar -->
+      <div id="komentar-list" style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- Komentar 1 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#6366f1;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">R</div>
+          <div style="flex:1;">
+            <div style="background:#fff;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:12px 14px;border:1px solid var(--border);">
+              <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Rizka Amelia</div>
+              <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Terima kasih artikelnya sangat membantu! Saya baru masuk trimester 2 dan memang lagi bingung soal nutrisi. Langsung mau dicatat checklistnya.</div>
+            </div>
+            <div style="display:flex;gap:14px;margin-top:7px;padding-left:4px;">
+              <button onclick="toast('Disukai!')" style="font-size:12px;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;gap:4px;"><i class="far fa-heart"></i> 12</button>
+              <button onclick="toast('Membalas...')" style="font-size:12px;color:var(--text-muted);cursor:pointer;">Balas</button>
+              <span style="font-size:11px;color:var(--text-muted);margin-left:auto;">2 jam lalu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Komentar 2 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#10b981;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">S</div>
+          <div style="flex:1;">
+            <div style="background:#fff;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:12px 14px;border:1px solid var(--border);">
+              <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Siti Nuraini</div>
+              <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Artikel ini benar-benar lengkap. Dokter saya juga selalu tekankan pentingnya folat di trimester pertama. Semoga bunda-bunda semua sehat selalu 🙏</div>
+            </div>
+            <div style="display:flex;gap:14px;margin-top:7px;padding-left:4px;">
+              <button onclick="toast('Disukai!')" style="font-size:12px;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;gap:4px;"><i class="far fa-heart"></i> 8</button>
+              <button onclick="toast('Membalas...')" style="font-size:12px;color:var(--text-muted);cursor:pointer;">Balas</button>
+              <span style="font-size:11px;color:var(--text-muted);margin-left:auto;">5 jam lalu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Komentar 3 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#f59e0b;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">D</div>
+          <div style="flex:1;">
+            <div style="background:#fff;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:12px 14px;border:1px solid var(--border);">
+              <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Dewi Kartika</div>
+              <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Bun, mau tanya. Kalau nggak suka susu sapi, kalsiumnya bisa dari mana ya selain susu?</div>
+            </div>
+            <div style="display:flex;gap:14px;margin-top:7px;padding-left:4px;">
+              <button onclick="toast('Disukai!')" style="font-size:12px;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;gap:4px;"><i class="far fa-heart"></i> 5</button>
+              <button onclick="toast('Membalas...')" style="font-size:12px;color:var(--text-muted);cursor:pointer;">Balas</button>
+              <span style="font-size:11px;color:var(--text-muted);margin-left:auto;">1 hari lalu</span>
+            </div>
+            <!-- Balasan dokter -->
+            <div style="margin-top:10px;margin-left:20px;display:flex;gap:10px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">dr</div>
+              <div style="flex:1;">
+                <div style="background:var(--pink-pale);border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:10px 12px;border:1px solid rgba(233,30,140,.15);">
+                  <div style="font-size:12px;font-weight:700;color:var(--pink);margin-bottom:3px;">dr. Rina Wijaya <span style="background:var(--pink);color:#fff;font-size:9px;padding:1px 6px;border-radius:20px;margin-left:4px;font-weight:600;">Penulis</span></div>
+                  <div style="font-size:12px;color:var(--text-soft);line-height:1.6;">Bisa dari tempe, tahu, ikan teri, brokoli, bayam, kacang almond, dan produk susu olahan seperti keju dan yogurt. Pastikan tetap cukup vitamin D agar penyerapan kalsium optimal ya Bunda 😊</div>
+                </div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:5px;padding-left:4px;">1 hari lalu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Komentar 4 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#ec4899;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">A</div>
+          <div style="flex:1;">
+            <div style="background:#fff;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:12px 14px;border:1px solid var(--border);">
+              <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Anisa Putri</div>
+              <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">Penting banget artikel ini untuk dibagikan ke semua bumil. Saya forward ke grup WA arisan bunda-bunda di komplek 😄</div>
+            </div>
+            <div style="display:flex;gap:14px;margin-top:7px;padding-left:4px;">
+              <button onclick="toast('Disukai!')" style="font-size:12px;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;gap:4px;"><i class="far fa-heart"></i> 21</button>
+              <button onclick="toast('Membalas...')" style="font-size:12px;color:var(--text-muted);cursor:pointer;">Balas</button>
+              <span style="font-size:11px;color:var(--text-muted);margin-left:auto;">2 hari lalu</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lihat komentar lainnya -->
+      <button onclick="toast('Memuat komentar lainnya...')" style="width:100%;margin-top:16px;padding:12px;border:1.5px solid var(--border);border-radius:var(--r-lg);font-size:13px;font-weight:600;color:var(--text-soft);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <i class="fas fa-chevron-down" style="font-size:11px;"></i> Lihat 14 Komentar Lainnya
+      </button>
+    </div>
+
+  </div><!-- end padding -->
+</main>
+
+<!-- BOTTOM NAV -->
+<nav id="bottom-nav">
+  <a class="bn-link" href="../user/dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="../user/tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link active" href="index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="../user/profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+showNav();
+
+// Progress bar baca
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const scrolled = el.scrollTop || document.body.scrollTop;
+  const total = el.scrollHeight - el.clientHeight;
+  const pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+// Toggle Like
+let liked = false;
+function toggleLike() {
+  liked = !liked;
+  const btn = document.getElementById('btn-like');
+  const cnt = document.getElementById('like-count');
+  const icon = btn.querySelector('i');
+  if (liked) {
+    icon.className = 'fas fa-heart';
+    icon.style.color = 'var(--pink)';
+    btn.style.borderColor = 'var(--pink)';
+    btn.style.color = 'var(--pink)';
+    cnt.textContent = '248';
+    toast('Kamu menyukai artikel ini!');
+  } else {
+    icon.className = 'far fa-heart';
+    icon.style.color = '';
+    btn.style.borderColor = '';
+    btn.style.color = '';
+    cnt.textContent = '247';
+  }
+}
+
+// Toggle Bookmark
+let bookmarked = false;
+function toggleBookmark() {
+  bookmarked = !bookmarked;
+  const btn = document.getElementById('btn-bookmark');
+  const icon = btn.querySelector('i');
+  if (bookmarked) {
+    icon.className = 'fas fa-bookmark';
+    btn.style.background = 'var(--pink)';
+    btn.style.color = '#fff';
+    toast('Artikel disimpan ke koleksi!');
+  } else {
+    icon.className = 'far fa-bookmark';
+    btn.style.background = 'var(--pink-pale)';
+    btn.style.color = 'var(--pink)';
+    toast('Artikel dihapus dari koleksi');
+  }
+}
+
+// Submit komentar
+function submitKomentar() {
+  const ta = document.querySelector('textarea.comment-box');
+  const text = ta.value.trim();
+  if (!text) { toast('Tulis komentar dulu ya Bunda!'); return; }
+  const list = document.getElementById('komentar-list');
+  const div = document.createElement('div');
+  div.style.cssText = 'display:flex;gap:10px;align-items:flex-start;';
+  div.innerHTML = `
+    <div style="width:36px;height:36px;border-radius:50%;background:var(--pink);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">B</div>
+    <div style="flex:1;">
+      <div style="background:#fff;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);padding:12px 14px;border:1px solid var(--border);">
+        <div style="font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">Bunda Sari <span style="background:var(--pink-pale);color:var(--pink);font-size:9px;padding:2px 6px;border-radius:20px;font-weight:600;margin-left:4px;">Kamu</span></div>
+        <div style="font-size:13px;color:var(--text-soft);line-height:1.6;">${text}</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:5px;padding-left:4px;">Baru saja</div>
+    </div>`;
+  list.insertBefore(div, list.firstChild);
+  ta.value = '';
+  toast('Komentar berhasil dikirim!');
+}
+</script>
+</body>
+</html>

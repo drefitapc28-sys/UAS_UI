@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kelola Produk - BundaCare Admin</title>
+  <style>body{opacity:0;animation:pageIn .3s ease .05s forwards;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="adm-overlay" id="adm-overlay" onclick="admCloseSidebar()"></div>
+
+<div style="display:flex;min-height:100vh;">
+
+  <aside class="adm-sidebar">
+    <a href="dashboard.html" class="adm-brand">
+      <div class="adm-brand-icon"><i class="fas fa-shield-halved"></i></div>
+      <div><p class="adm-brand-name">BundaCare</p><p class="adm-brand-sub">Admin Panel</p></div>
+    </a>
+    <nav style="padding:12px 10px;flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a class="adm-link" href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a class="adm-link" href="articles.html"><i class="fas fa-newspaper"></i> Artikel</a>
+      <a class="adm-link active" href="products.html"><i class="fas fa-box"></i> Produk</a>
+      <a class="adm-link" href="users.html"><i class="fas fa-users"></i> Pengguna</a>
+      <a class="adm-link" href="transactions.html"><i class="fas fa-receipt"></i> Transaksi</a>
+    </nav>
+    <a class="adm-link adm-logout" href="../index.html" style="padding:16px 20px;margin-top:auto;"><i class="fas fa-right-from-bracket"></i> Keluar</a>
+  </aside>
+
+  <div class="adm-content">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 style="font-size:22px;font-weight:800;color:var(--text-dark);">Kelola Produk</h1>
+        <p style="font-size:13px;color:var(--text-muted);">248 produk terdaftar</p>
+      </div>
+      <button class="btn btn-pink btn-sm" onclick="openModal('modal-product')"><i class="fas fa-plus"></i> Tambah Produk</button>
+    </div>
+
+    <!-- FILTER -->
+    <div class="card" style="padding:16px;margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div class="inp-wrap" style="flex:1;min-width:180px;">
+        <i class="fas fa-search inp-icon"></i>
+        <input class="inp" type="text" placeholder="Cari nama produk..."/>
+      </div>
+      <select class="inp" style="width:150px;">
+        <option>Semua Kategori</option>
+        <option>Vitamin</option><option>Pakaian</option><option>Perlengkapan</option>
+        <option>Perawatan</option><option>Nutrisi</option>
+      </select>
+      <select class="inp" style="width:140px;">
+        <option>Semua Stok</option>
+        <option>Stok Normal</option><option>Stok Rendah</option><option>Habis</option>
+      </select>
+      <button class="btn btn-gray btn-sm" onclick="toast('Filter diterapkan')"><i class="fas fa-filter"></i> Filter</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card" style="overflow:auto;margin-bottom:20px;">
+      <table class="adm-table" style="min-width:700px;">
+        <thead>
+          <tr>
+            <th style="width:36px;">#</th>
+            <th>Produk</th>
+            <th>Kategori</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Terjual</th>
+            <th>Rating</th>
+            <th style="width:90px;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">1</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#f5f0ff;flex-shrink:0;">
+                  <img src="../images/products/vitamin-prenatal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#f5f0ff'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Vitamin Prenatal Plus DHA</span>
+              </div>
+            </td>
+            <td><span class="badge badge-purple" style="font-size:10px;">Vitamin</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 148.000</td>
+            <td><span style="font-size:13px;font-weight:700;color:#059669;">248</span></td>
+            <td style="font-size:13px;">1.234</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.9</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">2</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#eff6ff;flex-shrink:0;">
+                  <img src="../images/products/maternity-pillow.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#eff6ff'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Bantal Kehamilan U-Shape Premium</span>
+              </div>
+            </td>
+            <td><span class="badge badge-blue" style="font-size:10px;">Perlengkapan</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 297.500</td>
+            <td><span style="font-size:13px;font-weight:700;color:#d97706;">87</span></td>
+            <td style="font-size:13px;">875</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.8</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">3</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#fdf2f8;flex-shrink:0;">
+                  <img src="../images/products/stretch-mark-cream.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fdf2f8'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Krim Anti Stretch Mark Organik</span>
+              </div>
+            </td>
+            <td><span class="badge badge-pink" style="font-size:10px;">Perawatan</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 154.000</td>
+            <td><span style="font-size:13px;font-weight:700;color:#059669;">312</span></td>
+            <td style="font-size:13px;">2.104</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.7</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">4</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#fffbeb;flex-shrink:0;">
+                  <img src="../images/products/maternity-dress.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fffbeb'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Dress Hamil Casual Linen Breathable</span>
+              </div>
+            </td>
+            <td><span class="badge badge-yellow" style="font-size:10px;">Pakaian</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 210.000</td>
+            <td><span style="font-size:13px;font-weight:700;color:#059669;">156</span></td>
+            <td style="font-size:13px;">310</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.9</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">5</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#f0fdf4;flex-shrink:0;">
+                  <img src="../images/products/doppler.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#f0fdf4'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Fetal Doppler Monitor Detak Jantung</span>
+              </div>
+            </td>
+            <td><span class="badge badge-blue" style="font-size:10px;">Perlengkapan</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 405.000</td>
+            <td><span style="font-size:13px;font-weight:700;color:#d97706;">43</span></td>
+            <td style="font-size:13px;">224</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.9</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">6</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#fdf2f8;flex-shrink:0;">
+                  <img src="../images/products/nursing-bra.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fdf2f8'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Bra Menyusui Anti-Keringat</span>
+              </div>
+            </td>
+            <td><span class="badge badge-yellow" style="font-size:10px;">Pakaian</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 128.000</td>
+            <td><span style="font-size:13px;font-weight:700;color:#059669;">198</span></td>
+            <td style="font-size:13px;">543</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.6</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">7</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#f5f3ff;flex-shrink:0;">
+                  <img src="../images/products/green-soya.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#f5f3ff'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Sari Kedelai Hijau</span>
+              </div>
+            </td>
+            <td><span class="badge badge-green" style="font-size:10px;">Nutrisi</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 61.750</td>
+            <td><span style="font-size:13px;font-weight:700;color:#ef4444;">18</span></td>
+            <td style="font-size:13px;">1.821</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.8</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">8</td>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:40px;height:40px;border-radius:var(--r-sm);overflow:hidden;background:#eff6ff;flex-shrink:0;">
+                  <img src="../images/products/pregnancy-jurnal.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#eff6ff'"/></div>
+                <span style="font-size:13px;font-weight:700;color:var(--text-dark);">Jurnal Kehamilan Muslim</span>
+              </div>
+            </td>
+            <td><span class="badge badge-blue" style="font-size:10px;">Perlengkapan</span></td>
+            <td style="font-size:13px;font-weight:700;color:var(--pink);">Rp 160.250</td>
+            <td><span style="font-size:13px;font-weight:700;color:#059669;">134</span></td>
+            <td style="font-size:13px;">267</td>
+            <td><span class="stars" style="font-size:12px;">★</span><span style="font-size:12px;font-weight:700;"> 4.9</span></td>
+            <td><div style="display:flex;gap:5px;">
+              <button class="btn btn-outline-pink btn-xs" onclick="toast('Edit produk')"><i class="fas fa-pen"></i></button>
+              <button class="btn btn-danger btn-xs" onclick="toast('Produk dihapus')"><i class="fas fa-trash"></i></button>
+            </div></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div style="font-size:13px;color:var(--text-muted);">Menampilkan 1–8 dari 248 produk</div>
+      <div style="display:flex;gap:4px;">
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn btn-pink btn-xs">1</button>
+        <button class="btn btn-gray btn-xs">2</button>
+        <button class="btn btn-gray btn-xs">3</button>
+        <span style="padding:5px 8px;font-size:12px;color:var(--text-muted);">...</span>
+        <button class="btn btn-gray btn-xs">31</button>
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL TAMBAH PRODUK -->
+<div class="modal" id="modal-product" style="align-items:center;">
+  <div class="modal-box" style="border-radius:var(--r-xl);max-width:520px;width:calc(100% - 32px);">
+    <div class="modal-title">Tambah Produk Baru</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div><label class="flabel">Nama Produk</label><input class="inp" type="text" placeholder="Nama produk"/></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label class="flabel">Kategori</label>
+          <select class="inp"><option>Pilih Kategori</option><option>Vitamin</option><option>Pakaian</option><option>Perlengkapan</option><option>Perawatan</option><option>Nutrisi</option></select>
+        </div>
+        <div><label class="flabel">Harga (Rp)</label><input class="inp" type="number" placeholder="0"/></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label class="flabel">Stok</label><input class="inp" type="number" placeholder="0"/></div>
+        <div><label class="flabel">Diskon (%)</label><input class="inp" type="number" placeholder="0"/></div>
+      </div>
+      <div><label class="flabel">Deskripsi Singkat</label>
+        <textarea class="inp" placeholder="Deskripsi produk..." style="height:80px;resize:none;"></textarea>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px;">
+        <button class="btn btn-gray" style="flex:1;" onclick="closeModal('modal-product')">Batal</button>
+        <button class="btn btn-pink" style="flex:2;" onclick="toast('Produk berhasil ditambahkan');closeModal('modal-product')">Simpan Produk</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN BOTTOM NAV (mobile) -->
+<div class="adm-bottom-nav">
+  <a class="adm-bn-link" href="dashboard.html"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+  <a class="adm-bn-link" href="articles.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="adm-bn-link active" href="products.html"><i class="fas fa-box"></i><span>Produk</span></a>
+  <a class="adm-bn-link" href="users.html"><i class="fas fa-users"></i><span>Pengguna</span></a>
+  <a class="adm-bn-link" href="transactions.html"><i class="fas fa-receipt"></i><span>Transaksi</span></a>
+</div>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+function admToggleSidebar() {
+  document.querySelector('.adm-sidebar').classList.toggle('open');
+  document.getElementById('adm-overlay').classList.toggle('show');
+}
+function admCloseSidebar() {
+  document.querySelector('.adm-sidebar').classList.remove('open');
+  document.getElementById('adm-overlay').classList.remove('show');
+}
+</script>
+</body>
+</html>

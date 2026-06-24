@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Profil - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{margin-left:0;transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link" href="../shop/index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link active" href="profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" style="min-height:100vh;padding-bottom:80px;">
+
+  <div class="page-header">
+    <a href="dashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Profil Saya</h2>
+  </div>
+
+  <div style="padding:18px;display:flex;flex-direction:column;gap:16px;">
+
+    <!-- PROFILE CARD -->
+    <div class="card" style="padding:24px;text-align:center;">
+      <div style="position:relative;display:inline-block;margin-bottom:16px;">
+        <div style="width:88px;height:88px;border-radius:50%;background:var(--pink-grad2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:36px;font-weight:800;overflow:hidden;margin:0 auto;">
+          <img src="../images/avatars/user.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/>
+          <span>B</span>
+        </div>
+        <div style="position:absolute;bottom:0;right:0;width:28px;height:28px;background:var(--pink);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;cursor:pointer;"><i class="fas fa-camera"></i></div>
+      </div>
+      <h2 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:4px;">Bunda Sari Dewi</h2>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">sari.dewi@email.com</p>
+      <div style="display:flex;justify-content:center;gap:8px;margin-bottom:16px;">
+        <span class="badge badge-pink">24 Minggu</span>
+        <span class="badge badge-purple">Trimester 2</span>
+      </div>
+      <button class="btn btn-outline-pink btn-sm" onclick="toast('Fitur edit profil akan segera hadir')"><i class="fas fa-pen"></i> Edit Profil</button>
+    </div>
+
+    <!-- STATISTIK -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+      <div class="stat-card"><div class="stat-val" style="font-size:22px;color:var(--pink);">24</div><div class="stat-lbl">Minggu Kehamilan</div></div>
+      <div class="stat-card"><div class="stat-val" style="font-size:22px;color:var(--pink);">6</div><div class="stat-lbl">Total Transaksi</div></div>
+      <div class="stat-card"><div class="stat-val" style="font-size:22px;color:var(--pink);">18</div><div class="stat-lbl">Artikel Dibaca</div></div>
+    </div>
+
+    <!-- MENU LIST -->
+    <div class="card" style="overflow:hidden;">
+      <a href="#" class="prof-item" onclick="toast('Fitur edit profil akan segera hadir');return false;">
+        <div class="prof-icon"><i class="fas fa-user-pen"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--text-dark);">Edit Profil</div><div style="font-size:12px;color:var(--text-muted);">Ubah nama, email, dan foto profil</div></div>
+        <i class="fas fa-chevron-right" style="color:#d1d5db;font-size:12px;"></i>
+      </a>
+      <a href="reminders.html" class="prof-item">
+        <div class="prof-icon"><i class="fas fa-bell"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--text-dark);">Pengingat</div><div style="font-size:12px;color:var(--text-muted);">Atur jadwal minum vitamin dan kontrol</div></div>
+        <i class="fas fa-chevron-right" style="color:#d1d5db;font-size:12px;"></i>
+      </a>
+      <a href="../shop/transactions.html" class="prof-item">
+        <div class="prof-icon"><i class="fas fa-receipt"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--text-dark);">Riwayat Transaksi</div><div style="font-size:12px;color:var(--text-muted);">Lihat semua pesanan Anda</div></div>
+        <div style="display:flex;align-items:center;gap:8px;"><span class="badge badge-pink" style="font-size:10px;">6</span><i class="fas fa-chevron-right" style="color:#d1d5db;font-size:12px;"></i></div>
+      </a>
+      <a href="#" class="prof-item" onclick="toast('Fitur alamat akan segera hadir');return false;">
+        <div class="prof-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--text-dark);">Alamat Pengiriman</div><div style="font-size:12px;color:var(--text-muted);">Kelola alamat pengiriman produk</div></div>
+        <i class="fas fa-chevron-right" style="color:#d1d5db;font-size:12px;"></i>
+      </a>
+      <a href="#" class="prof-item" onclick="toast('Fitur bantuan akan segera hadir');return false;">
+        <div class="prof-icon"><i class="fas fa-circle-question"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--text-dark);">Bantuan dan FAQ</div><div style="font-size:12px;color:var(--text-muted);">Temukan jawaban atas pertanyaan Anda</div></div>
+        <i class="fas fa-chevron-right" style="color:#d1d5db;font-size:12px;"></i>
+      </a>
+      <a href="../index.html" class="prof-item" style="border-bottom:none;">
+        <div class="prof-icon" style="background:#fee2e2;color:#ef4444;"><i class="fas fa-right-from-bracket"></i></div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:#ef4444;">Keluar</div><div style="font-size:12px;color:var(--text-muted);">Keluar dari akun BundaCare</div></div>
+        <i class="fas fa-chevron-right" style="color:#fca5a5;font-size:12px;"></i>
+      </a>
+    </div>
+
+    <div style="text-align:center;font-size:12px;color:#d1d5db;padding-bottom:8px;">BundaCare v1.0.0 · 2026</div>
+
+  </div>
+</main>
+
+<nav id="bottom-nav">
+  <a class="bn-link " href="dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="../shop/index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link active" href="profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

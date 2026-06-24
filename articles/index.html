@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Artikel Kesehatan - BundaCare</title>
+  <style>#sidebar{display:none!important;}#bottom-nav{display:none!important;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<nav class="pub-nav">
+  <div class="pub-nav-inner">
+    <a href="../index.html" class="pub-nav-logo">
+      <span class="pub-nav-logo-text">BundaCare</span>
+    </a>
+    <div class="pub-nav-links">
+      <a class="pub-nav-link" href="../index.html">Beranda</a>
+      <a class="pub-nav-link active" href="index.html">Artikel</a>
+      <a class="pub-nav-link" href="../shop/index.html">Belanja</a>
+      <a class="pub-nav-link" href="../community/index.html">Komunitas</a>
+    </div>
+    <div class="pub-nav-actions">
+      <a class="pub-nav-btn-login" href="../auth/login.html">Masuk</a>
+      <a class="pub-nav-btn-register" href="../auth/register.html">Daftar Gratis</a>
+    </div>
+    <button class="pub-nav-burger" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div class="pub-nav-mobile" id="mob-menu">
+  <a class="pub-nav-mobile-link" href="../index.html">Beranda</a>
+  <a class="pub-nav-mobile-link active" href="index.html">Artikel</a>
+  <a class="pub-nav-mobile-link" href="../shop/index.html">Belanja</a>
+  <a class="pub-nav-mobile-link" href="../community/index.html">Komunitas</a>
+  <div class="pub-nav-mobile-actions">
+    <a href="../auth/login.html" class="btn btn-gray" style="flex:1;">Masuk</a>
+    <a href="../auth/register.html" class="btn btn-pink" style="flex:1;">Daftar</a>
+  </div>
+</div>
+
+<main id="main" style="padding-top:70px;min-height:100vh;">
+
+  <!-- HEADER -->
+  <div style="background:linear-gradient(135deg,#fafafa 0%,#f5f0ff 100%);padding:48px 0 36px;">
+    <div class="container">
+      <h1 style="font-size:36px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">Artikel Kesehatan</h1>
+      <p style="font-size:15px;color:var(--text-soft);margin-bottom:20px;">Informasi terpercaya dari dokter dan tenaga kesehatan profesional</p>
+      <div class="inp-wrap" style="max-width:460px;">
+        <i class="fas fa-search inp-icon"></i>
+        <input class="inp" type="text" placeholder="Cari artikel..."/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:28px;padding-bottom:60px;">
+
+    <!-- TABS -->
+    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:28px;scrollbar-width:none;" data-tabs>
+      <button class="tab-btn active" onclick="tab(this,'tab-semua')">Semua</button>
+      <button class="tab-btn" onclick="tab(this,'tab-nutrisi')">Nutrisi</button>
+      <button class="tab-btn" onclick="tab(this,'tab-olahraga')">Olahraga</button>
+      <button class="tab-btn" onclick="tab(this,'tab-persiapan')">Persiapan</button>
+      <button class="tab-btn" onclick="tab(this,'tab-persalinan')">Persalinan</button>
+      <button class="tab-btn" onclick="tab(this,'tab-tips')">Tips</button>
+      <button class="tab-btn" onclick="tab(this,'tab-perkembangan')">Perkembangan</button>
+    </div>
+
+    <!-- TAB SEMUA -->
+    <div class="tab-content active" id="tab-semua">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f0ff;"><img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</h3><div style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 5 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#eff6ff;"><img src="../images/articles/olahraga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-blue" style="position:absolute;top:12px;left:12px;">Olahraga</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">7 Olahraga Aman yang Direkomendasikan Dokter</h3><div style="font-size:12px;color:var(--text-muted);">dr. Hana Kusuma · 4 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f3ff;"><img src="../images/articles/tas-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-purple" style="position:absolute;top:12px;left:12px;">Persiapan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Checklist Tas Persalinan yang Wajib Disiapkan</h3><div style="font-size:12px;color:var(--text-muted);">Bidan Siti Rahayu · 6 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fff1f2;"><img src="../images/articles/tanda-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-red" style="position:absolute;top:12px;left:12px;">Persalinan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</h3><div style="font-size:12px;color:var(--text-muted);">dr. Wulan Sari · 7 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fffbeb;"><img src="../images/articles/morning-sickness.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-yellow" style="position:absolute;top:12px;left:12px;">Tips</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Cara Mengatasi Morning Sickness yang Efektif</h3><div style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 4 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/janin-minggu24.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-pink" style="position:absolute;top:12px;left:12px;">Perkembangan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Perkembangan Janin Minggu ke-24 yang Menakjubkan</h3><div style="font-size:12px;color:var(--text-muted);">dr. Andini Pertiwi · 5 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB NUTRISI -->
+    <div class="tab-content" id="tab-nutrisi">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f0ff;"><img src="../images/articles/nutrisi.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</h3><div style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 5 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f0fdf4;"><img src="../images/articles/asam-folat.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Pentingnya Asam Folat di Awal Kehamilan</h3><div style="font-size:12px;color:var(--text-muted);">Apt. Maya Dewi · 4 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/makanan-bumil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">20 Makanan Bergizi Terbaik untuk Ibu Hamil</h3><div style="font-size:12px;color:var(--text-muted);">dr. Hana Kusuma · 6 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fffbeb;"><img src="../images/articles/suplemen-bumil.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-green" style="position:absolute;top:12px;left:12px;">Nutrisi</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Suplemen Wajib Ibu Hamil Trimester 2</h3><div style="font-size:12px;color:var(--text-muted);">Apt. Maya Dewi · 4 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB OLAHRAGA -->
+    <div class="tab-content" id="tab-olahraga">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#eff6ff;"><img src="../images/articles/olahraga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-blue" style="position:absolute;top:12px;left:12px;">Olahraga</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">7 Olahraga Aman yang Direkomendasikan Dokter</h3><div style="font-size:12px;color:var(--text-muted);">dr. Hana Kusuma · 4 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f0fdf4;"><img src="../images/articles/yoga-prenetal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-blue" style="position:absolute;top:12px;left:12px;">Olahraga</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Manfaat Yoga Prenatal untuk Ibu dan Janin</h3><div style="font-size:12px;color:var(--text-muted);">Instruktur Dewi · 5 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/jalan-kaki.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-blue" style="position:absolute;top:12px;left:12px;">Olahraga</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Jalan Kaki 30 Menit, Manfaatnya Luar Biasa</h3><div style="font-size:12px;color:var(--text-muted);">dr. Wulan Sari · 3 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERSIAPAN -->
+    <div class="tab-content" id="tab-persiapan">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f3ff;"><img src="../images/articles/tas-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-purple" style="position:absolute;top:12px;left:12px;">Persiapan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Checklist Tas Persalinan yang Wajib Disiapkan</h3><div style="font-size:12px;color:var(--text-muted);">Bidan Siti Rahayu · 6 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#eff6ff;"><img src="../images/articles/birth-plan.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-purple" style="position:absolute;top:12px;left:12px;">Persiapan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Cara Membuat Birth Plan yang Ideal</h3><div style="font-size:12px;color:var(--text-muted);">dr. Andini Pertiwi · 5 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/kamar-bayi.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-purple" style="position:absolute;top:12px;left:12px;">Persiapan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Tips Mendekorasi Kamar Bayi yang Aman</h3><div style="font-size:12px;color:var(--text-muted);">Tim BundaCare · 7 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERSALINAN -->
+    <div class="tab-content" id="tab-persalinan">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fff1f2;"><img src="../images/articles/tanda-persalinan.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-red" style="position:absolute;top:12px;left:12px;">Persalinan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</h3><div style="font-size:12px;color:var(--text-muted);">dr. Wulan Sari · 7 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#eff6ff;"><img src="../images/articles/normal-vs-cesar.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-red" style="position:absolute;top:12px;left:12px;">Persalinan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Normal vs Caesar: Pertimbangkan dengan Bijak</h3><div style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 8 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/teknik-napas.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-red" style="position:absolute;top:12px;left:12px;">Persalinan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Teknik Pernapasan untuk Meringankan Kontraksi</h3><div style="font-size:12px;color:var(--text-muted);">Bidan Siti Rahayu · 5 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB TIPS -->
+    <div class="tab-content" id="tab-tips">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fffbeb;"><img src="../images/articles/morning-sickness.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-yellow" style="position:absolute;top:12px;left:12px;">Tips</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Cara Mengatasi Morning Sickness yang Efektif</h3><div style="font-size:12px;color:var(--text-muted);">dr. Rina Wijaya · 4 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f3ff;"><img src="../images/articles/tidur-hamil.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-yellow" style="position:absolute;top:12px;left:12px;">Tips</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Posisi Tidur Terbaik untuk Ibu Hamil</h3><div style="font-size:12px;color:var(--text-muted);">dr. Hana Kusuma · 3 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/stretch-mark-tips.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-yellow" style="position:absolute;top:12px;left:12px;">Tips</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Tips Mencegah dan Mengatasi Stretch Mark</h3><div style="font-size:12px;color:var(--text-muted);">Tim BundaCare · 4 menit baca</div></div></a>
+      </div>
+    </div>
+
+    <!-- TAB PERKEMBANGAN -->
+    <div class="tab-content" id="tab-perkembangan">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="art-grid">
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#fdf2f8;"><img src="../images/articles/janin-trimester1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-pink" style="position:absolute;top:12px;left:12px;">Perkembangan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Perkembangan Janin Trimester Pertama</h3><div style="font-size:12px;color:var(--text-muted);">dr. Andini Pertiwi · 6 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#f5f0ff;"><img src="../images/articles/janin-minggu24.webp" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-pink" style="position:absolute;top:12px;left:12px;">Perkembangan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Perkembangan Janin Minggu ke-24 yang Menakjubkan</h3><div style="font-size:12px;color:var(--text-muted);">dr. Andini Pertiwi · 5 menit baca</div></div></a>
+        <a href="detail.html" class="art-card"><div style="height:168px;overflow:hidden;position:relative;background:#eff6ff;"><img src="../images/articles/janin-trimester3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'"/><span class="badge badge-pink" style="position:absolute;top:12px;left:12px;">Perkembangan</span></div><div style="padding:16px;"><h3 style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.4;margin-bottom:8px;">Janin di Trimester 3: Persiapan Menuju Persalinan</h3><div style="font-size:12px;color:var(--text-muted);">dr. Wulan Sari · 5 menit baca</div></div></a>
+      </div>
+    </div>
+
+  </div>
+  <style>.art-grid{grid-template-columns:repeat(3,1fr);}@media(max-width:1024px){.art-grid{grid-template-columns:repeat(2,1fr)!important;}}@media(max-width:600px){.art-grid{grid-template-columns:1fr!important;}}</style>
+</main>
+
+<!-- FOOTER -->
+<footer class="pub-footer">
+  <div class="pub-footer-inner">
+    <div>
+      <div class="pub-footer-heading">Fitur</div>
+      <a href="/auth/login.html">Tracker Kehamilan</a>
+      <a href="articles/index.html">Panduan Kesehatan</a>
+      <!--masukkan link hosting wordpress-->
+      <a href="community/index.html">Komunitas</a>
+      <a href="shop/index.html">Belanja Produk</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Akun</div>
+      <a href="/auth/login.html">Masuk</a>
+      <a href="/auth/register.html">Daftar Gratis</a>
+      <a href="/auth/forgot-password.html">Lupa Password</a>
+    </div>
+    <div>
+      <div class="pub-footer-heading">Lainnya</div>
+      <a href="/admin/login.html">Admin Panel</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </div>
+  <div class="pub-footer-bottom">
+    <p style="margin-bottom:6px;">2026 BundaCare. Semua hak dilindungi undang-undang.</p>
+    <p>Dibuat untuk ibu hamil Indonesia</p>
+  </div>
+</footer>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+</body>
+</html>

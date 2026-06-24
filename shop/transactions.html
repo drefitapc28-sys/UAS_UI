@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Riwayat Transaksi - BundaCare</title>
+  <style>#sidebar{display:none;}#bottom-nav{display:none;}#main{transition:margin-left .2s;}body{opacity:0;animation:pageIn .3s ease .05s forwards;background:var(--bg-page);}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="s-logo"><a href="../user/dashboard.html" class="s-logo-inner"><div class="s-logo-icon"><i class="fas fa-heart"></i></div><div><h1>BundaCare</h1><p>Aplikasi Ibu Hamil</p></div></a></div>
+  <nav class="s-nav">
+    <a class="s-link" href="../user/dashboard.html"><i class="fas fa-home"></i> Beranda</a>
+    <a class="s-link" href="../user/tracker.html"><i class="fas fa-baby"></i> Tracker</a>
+    <a class="s-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i> Artikel</a>
+    <a class="s-link active" href="index-user.html"><i class="fas fa-store"></i> Belanja</a>
+    <a class="s-link" href="../community/index.html"><i class="fas fa-users"></i> Komunitas</a>
+    <a class="s-link" href="../user/profile.html"><i class="fas fa-user"></i> Profil</a>
+  </nav>
+  <a class="s-user" href="../user/profile.html"><div class="s-user-av"><img src="../images/avatars/user.jpg" onerror="this.style.display='none'" alt=""/><span>B</span></div><div><div class="s-user-name">Bunda Sari</div><div class="s-user-sub">Lihat Profil</div></div></a>
+</aside>
+
+<main id="main" data-active-nav="shop" style="min-height:100vh;padding-bottom:80px;">
+
+  <div class="page-header">
+    <a href="index-user.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <h2>Riwayat Transaksi</h2>
+    <span></span>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div style="display:flex;gap:6px;overflow-x:auto;padding:12px 18px;scrollbar-width:none;border-bottom:1px solid var(--border);">
+    <button class="tab-btn active" onclick="tab(this,'tx-semua')">Semua</button>
+    <button class="tab-btn" onclick="tab(this,'tx-proses')">Diproses</button>
+    <button class="tab-btn" onclick="tab(this,'tx-kirim')">Dikirim</button>
+    <button class="tab-btn" onclick="tab(this,'tx-selesai')">Selesai</button>
+    <button class="tab-btn" onclick="tab(this,'tx-batal')">Dibatalkan</button>
+  </div>
+
+  <!-- TAB SEMUA -->
+  <div class="tab-content active" id="tx-semua">
+    <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;">
+
+      <!-- Transaksi 1 - Diproses -->
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">11 Jun 2026 · #BC-2024-00847</div>
+          </div>
+          <span style="background:#fef3c7;color:#d97706;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Diproses</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f0ff;">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#f5f0ff'"/>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Vitamin Prenatal Plus DHA</div>
+            <div style="font-size:11px;color:var(--text-muted);">+3 produk lainnya</div>
+          </div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">Total Pembayaran</div>
+            <div class="price-main" style="font-size:15px;">Rp 529.750</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Pesanan dibatalkan')" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--text-soft);cursor:pointer;">Batalkan</button>
+            <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transaksi 2 - Dikirim -->
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">05 Jun 2026 · #BC-2024-00831</div>
+          </div>
+          <span style="background:#dbeafe;color:#2563eb;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Dikirim</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;">
+            <img src="../images/products/maternity-pillow.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#eff6ff'"/>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Bantal Kehamilan U-Shape</div>
+            <div style="font-size:11px;color:var(--text-muted);">1 produk</div>
+          </div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">Total Pembayaran</div>
+            <div class="price-main" style="font-size:15px;">Rp 297.500</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Pesanan diterima, terima kasih!')" style="padding:8px 14px;background:#dbeafe;border-radius:var(--r-md);font-size:12px;font-weight:600;color:#2563eb;cursor:pointer;">Terima</button>
+            <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transaksi 3 - Selesai -->
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">22 Mei 2026 · #BC-2024-00792</div>
+          </div>
+          <span style="background:#d1fae5;color:#059669;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Selesai</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;">
+            <img src="../images/products/stretch-mark-cream.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fdf2f8'"/>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Krim Anti Stretch Mark</div>
+            <div style="font-size:11px;color:var(--text-muted);">+1 produk lainnya</div>
+          </div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">Total Pembayaran</div>
+            <div class="price-main" style="font-size:15px;">Rp 215.750</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Terima kasih atas ulasannya!')" style="padding:8px 14px;background:#d1fae5;border-radius:var(--r-md);font-size:12px;font-weight:600;color:#059669;cursor:pointer;"><i class="fas fa-star" style="font-size:10px;"></i> Ulasan</button>
+            <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transaksi 4 - Selesai -->
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">10 Mei 2026 · #BC-2024-00765</div>
+          </div>
+          <span style="background:#d1fae5;color:#059669;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Selesai</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fffbeb;">
+            <img src="../images/products/maternity-dress.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fffbeb'"/>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:13px;font-weight:700;color:var(--text-dark);">Dress Hamil Casual Linen</div>
+            <div style="font-size:11px;color:var(--text-muted);">1 produk</div>
+          </div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);">Total Pembayaran</div>
+            <div class="price-main" style="font-size:15px;">Rp 228.000</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Beli lagi!')" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);cursor:pointer;"><i class="fas fa-redo" style="font-size:10px;"></i> Beli Lagi</button>
+            <a href="payment-success.html" style="padding:8px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--text-soft);">Detail</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB DIPROSES -->
+  <div class="tab-content" id="tx-proses">
+    <div style="padding:16px 18px;">
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-size:11px;color:var(--text-muted);">11 Jun 2026 · #BC-2024-00847</div>
+          <span style="background:#fef3c7;color:#d97706;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Diproses</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#f5f0ff;">
+            <img src="../images/products/vitamin-prenatal.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#f5f0ff'"/>
+          </div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Vitamin Prenatal Plus DHA</div><div style="font-size:11px;color:var(--text-muted);">+3 produk lainnya</div></div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div><div style="font-size:11px;color:var(--text-muted);">Total</div><div class="price-main" style="font-size:15px;">Rp 529.750</div></div>
+          <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB DIKIRIM -->
+  <div class="tab-content" id="tx-kirim">
+    <div style="padding:16px 18px;">
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-size:11px;color:var(--text-muted);">05 Jun 2026 · #BC-2024-00831</div>
+          <span style="background:#dbeafe;color:#2563eb;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Dikirim</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#eff6ff;">
+            <img src="../images/products/maternity-pillow.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#eff6ff'"/>
+          </div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Bantal Kehamilan U-Shape</div><div style="font-size:11px;color:var(--text-muted);">1 produk</div></div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div><div style="font-size:11px;color:var(--text-muted);">Total</div><div class="price-main" style="font-size:15px;">Rp 297.500</div></div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Pesanan diterima!')" style="padding:8px 14px;background:#dbeafe;border-radius:var(--r-md);font-size:12px;font-weight:600;color:#2563eb;cursor:pointer;">Terima</button>
+            <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB SELESAI -->
+  <div class="tab-content" id="tx-selesai">
+    <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;">
+      <div class="card" style="padding:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-size:11px;color:var(--text-muted);">22 Mei 2026 · #BC-2024-00792</div>
+          <span style="background:#d1fae5;color:#059669;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">Selesai</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);overflow:hidden;flex-shrink:0;background:#fdf2f8;">
+            <img src="../images/products/stretch-mark-cream.jpg" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='#fdf2f8'"/>
+          </div>
+          <div style="flex:1;"><div style="font-size:13px;font-weight:700;color:var(--text-dark);">Krim Anti Stretch Mark</div><div style="font-size:11px;color:var(--text-muted);">+1 produk</div></div>
+        </div>
+        <div class="divider" style="margin-bottom:12px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div><div style="font-size:11px;color:var(--text-muted);">Total</div><div class="price-main" style="font-size:15px;">Rp 215.750</div></div>
+          <div style="display:flex;gap:8px;">
+            <button onclick="toast('Ulasan dikirim!')" style="padding:8px 14px;background:#d1fae5;border-radius:var(--r-md);font-size:12px;font-weight:600;color:#059669;cursor:pointer;"><i class="fas fa-star" style="font-size:10px;"></i> Ulasan</button>
+            <a href="payment-success.html" style="padding:8px 14px;background:var(--pink-pale);border-radius:var(--r-md);font-size:12px;font-weight:600;color:var(--pink);">Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB DIBATALKAN -->
+  <div class="tab-content" id="tx-batal">
+    <div style="padding:40px 18px;text-align:center;">
+      <div style="width:70px;height:70px;border-radius:50%;background:var(--bg-page);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+        <i class="fas fa-box-open" style="font-size:30px;color:var(--text-muted);"></i>
+      </div>
+      <div style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">Tidak Ada Pesanan Dibatalkan</div>
+      <div style="font-size:13px;color:var(--text-muted);">Semua pesanan kamu berjalan lancar.</div>
+    </div>
+  </div>
+
+</main>
+
+<nav id="bottom-nav">
+  <a class="bn-link" href="../user/dashboard.html"><i class="fas fa-home"></i><span>Beranda</span></a>
+  <a class="bn-link" href="../user/tracker.html"><i class="fas fa-baby"></i><span>Tracker</span></a>
+  <a class="bn-link" href="../articles/index-user.html"><i class="fas fa-newspaper"></i><span>Artikel</span></a>
+  <a class="bn-link" href="index-user.html"><i class="fas fa-store"></i><span>Belanja</span></a>
+  <a class="bn-link" href="../community/index.html"><i class="fas fa-users"></i><span>Komunitas</span></a>
+  <a class="bn-link" href="../user/profile.html"><i class="fas fa-user"></i><span>Profil</span></a>
+</nav>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>showNav();</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Login - BundaCare</title>
+  <style>#sidebar{display:none!important;}#bottom-nav{display:none!important;}body{opacity:0;animation:pageIn .3s ease .05s forwards;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body style="min-height:100vh;background:#111827;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;">
+
+  <div class="auth-card" style="max-width:400px;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <div style="width:60px;height:60px;background:linear-gradient(135deg,#f472b6,#ec4899);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#fff;font-size:26px;box-shadow:0 8px 24px rgba(236,72,153,.3);"><i class="fas fa-shield-halved"></i></div>
+      <h1 style="font-size:22px;font-weight:800;color:var(--text-dark);">Admin BundaCare</h1>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:4px;">Akses terbatas untuk administrator</p>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <label class="flabel">Username</label>
+      <div class="inp-wrap">
+        <i class="fas fa-user-shield inp-icon"></i>
+        <input class="inp" type="text" placeholder="admin@bundacare.id"/>
+      </div>
+    </div>
+
+    <div style="margin-bottom:28px;">
+      <label class="flabel">Password</label>
+      <div class="inp-wrap">
+        <i class="fas fa-lock inp-icon"></i>
+        <input class="inp" type="password" id="adm-pw" placeholder="Masukkan password admin"/>
+        <i class="fas fa-eye inp-icon-right" onclick="showPwToggle('adm-pw',this)"></i>
+      </div>
+    </div>
+
+    <a href="dashboard.html" class="btn btn-pink btn-full" style="font-size:15px;padding:13px;margin-bottom:16px;">Masuk ke Panel Admin</a>
+    <p style="text-align:center;font-size:12px;color:var(--text-muted);">Bukan halaman untuk pengguna umum</p>
+  </div>
+
+  <a href="../index.html" style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px;text-decoration:none;">
+    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+  </a>
+
+  <div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+  <script src="../app.js"></script>
+</body>
+</html>

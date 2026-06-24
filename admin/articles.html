@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Kelola Artikel - BundaCare Admin</title>
+  <style>body{opacity:0;animation:pageIn .3s ease .05s forwards;}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<!-- MOBILE OVERLAY -->
+<div class="adm-overlay" id="adm-overlay" onclick="admCloseSidebar()"></div>
+
+<!-- MOBILE TOP BAR -->
+<div class="adm-topbar">
+  <div class="adm-topbar-title">
+    <div class="adm-brand-icon" style="width:30px;height:30px;font-size:13px;"><i class="fas fa-shield-halved"></i></div>
+    Admin Panel
+  </div>
+  <button class="adm-burger" onclick="admToggleSidebar()"><i class="fas fa-bars"></i></button>
+</div>
+
+<div style="display:flex;min-height:100vh;">
+
+  <aside class="adm-sidebar">
+    <a href="dashboard.html" class="adm-brand">
+      <div class="adm-brand-icon"><i class="fas fa-shield-halved"></i></div>
+      <div><p class="adm-brand-name">BundaCare</p><p class="adm-brand-sub">Admin Panel</p></div>
+    </a>
+    <nav style="padding:12px 10px;flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a class="adm-link" href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <a class="adm-link active" href="articles.html"><i class="fas fa-newspaper"></i> Artikel</a>
+      <a class="adm-link" href="products.html"><i class="fas fa-box"></i> Produk</a>
+      <a class="adm-link" href="users.html"><i class="fas fa-users"></i> Pengguna</a>
+      <a class="adm-link" href="transactions.html"><i class="fas fa-receipt"></i> Transaksi</a>
+    </nav>
+    <a class="adm-link adm-logout" href="../index.html" style="padding:16px 20px;margin-top:auto;"><i class="fas fa-right-from-bracket"></i> Keluar</a>
+  </aside>
+
+  <div class="adm-content">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 style="font-size:22px;font-weight:800;color:var(--text-dark);">Kelola Artikel</h1>
+        <p style="font-size:13px;color:var(--text-muted);">214 artikel terdaftar</p>
+      </div>
+      <button class="btn btn-pink btn-sm" onclick="openModal('modal-article')"><i class="fas fa-plus"></i> Tambah Artikel</button>
+    </div>
+
+    <!-- FILTER -->
+    <div class="card" style="padding:16px;margin-bottom:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div class="inp-wrap" style="flex:1;min-width:200px;">
+        <i class="fas fa-search inp-icon"></i>
+        <input class="inp" type="text" placeholder="Cari judul artikel..."/>
+      </div>
+      <select class="inp" style="width:160px;">
+        <option>Semua Kategori</option>
+        <option>Nutrisi</option><option>Olahraga</option><option>Persiapan</option>
+        <option>Persalinan</option><option>Tips</option><option>Perkembangan</option>
+      </select>
+      <select class="inp" style="width:140px;">
+        <option>Semua Status</option>
+        <option>Dipublikasikan</option><option>Draft</option>
+      </select>
+      <button class="btn btn-gray btn-sm" onclick="toast('Filter diterapkan')"><i class="fas fa-filter"></i> Filter</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card" style="overflow:auto;margin-bottom:20px;">
+      <table class="adm-table" style="min-width:720px;">
+        <thead>
+          <tr>
+            <th style="width:36px;">#</th>
+            <th>Judul Artikel</th>
+            <th>Kategori</th>
+            <th>Penulis</th>
+            <th>Tanggal</th>
+            <th>Views</th>
+            <th>Status</th>
+            <th style="width:90px;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">1</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Panduan Nutrisi Lengkap untuk Setiap Trimester</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Nutrisi</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">dr. Rina Wijaya</td>
+            <td style="font-size:12px;color:var(--text-muted);">18 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">12.450</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">2</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">7 Olahraga Aman yang Direkomendasikan Dokter</td>
+            <td><span class="badge badge-blue" style="font-size:10px;">Olahraga</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">dr. Hana Kusuma</td>
+            <td style="font-size:12px;color:var(--text-muted);">15 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">9.823</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">3</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Checklist Tas Persalinan yang Wajib Disiapkan</td>
+            <td><span class="badge badge-purple" style="font-size:10px;">Persiapan</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">Bidan Siti Rahayu</td>
+            <td style="font-size:12px;color:var(--text-muted);">12 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">8.167</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">4</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Tanda-Tanda Persalinan yang Harus Anda Kenali</td>
+            <td><span class="badge badge-red" style="font-size:10px;">Persalinan</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">dr. Wulan Sari</td>
+            <td style="font-size:12px;color:var(--text-muted);">10 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">7.391</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">5</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Cara Mengatasi Morning Sickness yang Efektif</td>
+            <td><span class="badge badge-yellow" style="font-size:10px;">Tips</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">dr. Rina Wijaya</td>
+            <td style="font-size:12px;color:var(--text-muted);">8 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">6.854</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">6</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Perkembangan Janin Minggu ke-24 yang Menakjubkan</td>
+            <td><span class="badge badge-pink" style="font-size:10px;">Perkembangan</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">dr. Andini Pertiwi</td>
+            <td style="font-size:12px;color:var(--text-muted);">5 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">5.621</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Publik</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted);font-size:12px;">7</td>
+            <td style="font-size:13px;font-weight:700;color:var(--text-dark);max-width:220px;">Pentingnya Asam Folat di Awal Kehamilan</td>
+            <td><span class="badge badge-green" style="font-size:10px;">Nutrisi</span></td>
+            <td style="font-size:12px;color:var(--text-soft);">Apt. Maya Dewi</td>
+            <td style="font-size:12px;color:var(--text-muted);">1 Mei 2026</td>
+            <td style="font-size:13px;font-weight:700;">4.987</td>
+            <td><span class="badge badge-gray" style="font-size:10px;">Draft</span></td>
+            <td><div style="display:flex;gap:5px;"><button class="btn btn-outline-pink btn-xs" onclick="toast('Edit artikel')"><i class="fas fa-pen"></i></button><button class="btn btn-danger btn-xs" onclick="toast('Artikel dihapus')"><i class="fas fa-trash"></i></button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div style="font-size:13px;color:var(--text-muted);">Menampilkan 1–7 dari 214 artikel</div>
+      <div style="display:flex;gap:4px;">
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn btn-pink btn-xs">1</button>
+        <button class="btn btn-gray btn-xs" onclick="toast('Halaman 2')">2</button>
+        <button class="btn btn-gray btn-xs" onclick="toast('Halaman 3')">3</button>
+        <span style="padding:5px 8px;font-size:12px;color:var(--text-muted);">...</span>
+        <button class="btn btn-gray btn-xs">31</button>
+        <button class="btn btn-gray btn-xs"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL TAMBAH ARTIKEL -->
+<div class="modal" id="modal-article" style="align-items:center;">
+  <div class="modal-box" style="border-radius:var(--r-xl);max-width:520px;width:calc(100% - 32px);">
+    <div class="modal-title">Tambah Artikel Baru</div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div><label class="flabel">Judul Artikel</label><input class="inp" type="text" placeholder="Masukkan judul artikel"/></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div><label class="flabel">Kategori</label><select class="inp"><option>Pilih Kategori</option><option>Nutrisi</option><option>Olahraga</option><option>Persiapan</option><option>Persalinan</option><option>Tips</option><option>Perkembangan</option></select></div>
+        <div><label class="flabel">Status</label><select class="inp"><option>Draft</option><option>Dipublikasikan</option></select></div>
+      </div>
+      <div><label class="flabel">Penulis</label><input class="inp" type="text" placeholder="Nama penulis atau dokter"/></div>
+      <div><label class="flabel">Ringkasan</label><textarea class="inp" placeholder="Ringkasan singkat artikel..." style="height:80px;resize:none;"></textarea></div>
+      <div style="display:flex;gap:8px;margin-top:4px;">
+        <button class="btn btn-gray" style="flex:1;" onclick="closeModal('modal-article')">Batal</button>
+        <button class="btn btn-pink" style="flex:2;" onclick="toast('Artikel berhasil ditambahkan');closeModal('modal-article')">Simpan Artikel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><i class="fas fa-check-circle"></i><span></span></div>
+<script src="../app.js"></script>
+<script>
+function admToggleSidebar() {
+  document.querySelector('.adm-sidebar').classList.toggle('open');
+  document.getElementById('adm-overlay').classList.toggle('show');
+}
+function admCloseSidebar() {
+  document.querySelector('.adm-sidebar').classList.remove('open');
+  document.getElementById('adm-overlay').classList.remove('show');
+}
+// Active link bottom nav
+const page = location.pathname.split('/').pop();
+document.querySelectorAll('.adm-link, .adm-bn-link').forEach(el => {
+  if (el.getAttribute('href') === page) el.classList.add('active');
+});
+</script>
+</body>
+</html>
