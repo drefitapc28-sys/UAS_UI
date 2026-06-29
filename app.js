@@ -106,6 +106,15 @@ function showNav() { // fungsi untuk menampilkan navigasi sidebar dan bottom nav
     if (main)    main.style.marginLeft    = (hasSidebar && isDesktop) ? '224px' : '0';
     if (bnav)    bnav.style.display       = (hasSidebar && !isDesktop) ? 'flex' : 'none';
     if (sidebar) sidebar.style.display    = (hasSidebar && isDesktop)  ? 'flex' : 'none';
+    if (sidebar) {
+      sidebar.style.display  = (hasSidebar && isDesktop) ? 'flex' : 'none';
+      sidebar.style.position = 'fixed';
+      sidebar.style.top      = '0';
+      sidebar.style.left     = '0';
+      sidebar.style.bottom   = '0';
+      sidebar.style.height   = '100vh';
+      sidebar.style.zIndex   = '100';
+    }
   }
   adjustMargin();
   window.addEventListener('resize', adjustMargin);
